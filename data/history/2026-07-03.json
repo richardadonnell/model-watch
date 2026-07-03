@@ -1,27 +1,27 @@
 {
- "generated_at": "2026-07-03T21:46:41Z",
+ "generated_at": "2026-07-03T23:33:37Z",
  "sources": {
   "openrouter": {
    "ok": true,
-   "fetched_at": "2026-07-03T21:46:41Z",
+   "fetched_at": "2026-07-03T23:33:37Z",
    "stale_since": null,
    "data_date": null
   },
   "artificialanalysis": {
-   "ok": true,
+   "ok": false,
    "fetched_at": "2026-07-03T21:46:41Z",
-   "stale_since": null,
+   "stale_since": "2026-07-03T21:46:41Z",
    "data_date": null
   },
   "aider": {
    "ok": true,
-   "fetched_at": "2026-07-03T21:46:41Z",
+   "fetched_at": "2026-07-03T23:33:37Z",
    "stale_since": null,
    "data_date": "2025-10-03"
   },
   "livebench": {
    "ok": true,
-   "fetched_at": "2026-07-03T21:46:41Z",
+   "fetched_at": "2026-07-03T23:33:37Z",
    "stale_since": null,
    "data_date": "2026-01-08"
   }
@@ -47,7 +47,7 @@
      "ttft_seconds": 45.121
     },
     "livebench": {
-     "average": 75.74
+     "average": 78.57
     }
    }
   },
@@ -71,7 +71,7 @@
      "ttft_seconds": 32.345
     },
     "livebench": {
-     "average": 77.74
+     "average": 79.47
     }
    }
   },
@@ -123,230 +123,328 @@
     }
    }
   },
-  "gpt-5": {
-   "name": "GPT-5",
+  "gpt-5.5": {
+   "name": "GPT-5.5",
    "vendor": "OpenAI",
    "scores": {
     "openrouter": {
-     "price_in_per_1m": 1.25,
-     "price_out_per_1m": 10.0,
-     "context_length": 400000,
-     "tokens_total": 269612808914
+     "price_in_per_1m": 5.0,
+     "price_out_per_1m": 30.0,
+     "context_length": 1050000,
+     "tokens_total": 1176887640246
     },
-    "artificialanalysis": {
-     "intelligence_index": 34.7,
-     "coding_index": 37.8,
-     "price_in_per_1m": 1.25,
-     "price_out_per_1m": 10,
-     "price_blended_per_1m": 3.438,
-     "tokens_per_second": 118.902,
-     "ttft_seconds": 96.521
+    "livebench": {
+     "average": 81.28
     }
    }
   },
-  "gemini-2.5-pro": {
-   "name": "Gemini 2.5 Pro",
+  "gpt-5.4": {
+   "name": "GPT-5.4",
+   "vendor": "OpenAI",
+   "scores": {
+    "openrouter": {
+     "price_in_per_1m": 2.5,
+     "price_out_per_1m": 15.0,
+     "context_length": 1050000,
+     "tokens_total": 683882983212
+    },
+    "livebench": {
+     "average": 80.91
+    }
+   }
+  },
+  "gpt-5.3-codex": {
+   "name": "GPT-5.3 Codex",
+   "vendor": "OpenAI",
+   "scores": {
+    "openrouter": {
+     "price_in_per_1m": 1.75,
+     "price_out_per_1m": 14.0,
+     "context_length": 400000,
+     "tokens_total": 59416392788
+    },
+    "livebench": {
+     "average": 71.97
+    }
+   }
+  },
+  "gemini-3.5-flash": {
+   "name": "Gemini 3.5 Flash",
    "vendor": "Google",
    "scores": {
     "openrouter": {
-     "price_in_per_1m": 1.25,
-     "price_out_per_1m": 10.0,
+     "price_in_per_1m": 1.5,
+     "price_out_per_1m": 9.0,
      "context_length": 1048576,
-     "tokens_total": 88031311851
+     "tokens_total": 400574595198
     },
-    "artificialanalysis": {
-     "intelligence_index": 25.8,
-     "coding_index": 33.3,
-     "price_in_per_1m": 1.25,
-     "price_out_per_1m": 10,
-     "price_blended_per_1m": 3.438,
-     "tokens_per_second": 139.149,
-     "ttft_seconds": 21.213
+    "livebench": {
+     "average": 75.79
     }
    }
   },
-  "grok-4": {
-   "name": "Grok 4.20",
+  "gemini-3.1-pro": {
+   "name": "Gemini 3.1 Pro",
+   "vendor": "Google",
+   "scores": {
+    "openrouter": {
+     "price_in_per_1m": 2.0,
+     "price_out_per_1m": 12.0,
+     "context_length": 1048576,
+     "tokens_total": 219715125939
+    },
+    "livebench": {
+     "average": 80.71
+    }
+   }
+  },
+  "grok-4.3": {
+   "name": "Grok 4.3",
    "vendor": "xAI",
    "scores": {
     "openrouter": {
      "price_in_per_1m": 1.25,
      "price_out_per_1m": 2.5,
-     "context_length": 2000000,
-     "tokens_total": 35590609848
+     "context_length": 1000000,
+     "tokens_total": 103943508152
     },
-    "artificialanalysis": {
-     "intelligence_index": 33.3,
-     "coding_index": null,
-     "price_in_per_1m": 5.5,
-     "price_out_per_1m": 27.5,
-     "price_blended_per_1m": 11,
-     "tokens_per_second": 0,
-     "ttft_seconds": 0
+    "livebench": {
+     "average": 67.37
     }
    }
   },
-  "deepseek-r1": {
-   "name": "DeepSeek R1",
+  "deepseek-v4-pro": {
+   "name": "DeepSeek V4 Pro",
    "vendor": "DeepSeek",
    "scores": {
     "openrouter": {
-     "price_in_per_1m": 0.7,
-     "price_out_per_1m": 2.5,
-     "context_length": 163840,
-     "tokens_total": 14143901525
+     "price_in_per_1m": 0.435,
+     "price_out_per_1m": 0.87,
+     "context_length": 1048576,
+     "tokens_total": 2212859840299
     },
-    "artificialanalysis": {
-     "intelligence_index": 20.1,
-     "coding_index": null,
-     "price_in_per_1m": 1.35,
-     "price_out_per_1m": 4.2,
-     "price_blended_per_1m": 2.063,
-     "tokens_per_second": 0,
-     "ttft_seconds": 0
-    },
-    "aider": {
-     "pass_rate": 56.9,
-     "well_formed_pct": 96.9,
-     "total_cost": 5.4193
+    "livebench": {
+     "average": 74.39
     }
    }
   },
-  "qwen3-235b": {
-   "name": "Qwen3 235B",
+  "deepseek-v4-flash": {
+   "name": "DeepSeek V4 Flash",
+   "vendor": "DeepSeek",
+   "scores": {
+    "openrouter": {
+     "price_in_per_1m": 0.09,
+     "price_out_per_1m": 0.18,
+     "context_length": 1048576,
+     "tokens_total": 5077784017683
+    },
+    "livebench": {
+     "average": 67.67
+    }
+   }
+  },
+  "qwen3.7-max": {
+   "name": "Qwen3.7 Max",
    "vendor": "Alibaba",
    "scores": {
     "openrouter": {
-     "price_in_per_1m": 0.455,
-     "price_out_per_1m": 1.82,
-     "context_length": 131072,
-     "tokens_total": 93476883321
+     "price_in_per_1m": 1.25,
+     "price_out_per_1m": 3.75,
+     "context_length": 1000000,
+     "tokens_total": 222685440063
     },
-    "artificialanalysis": {
-     "intelligence_index": 10.9,
-     "coding_index": null,
-     "price_in_per_1m": 0.7,
-     "price_out_per_1m": 2.8,
-     "price_blended_per_1m": 1.225,
-     "tokens_per_second": 63.611,
-     "ttft_seconds": 1.16
+    "livebench": {
+     "average": 75.15
     }
    }
   },
-  "llama-4-maverick": {
-   "name": "Llama 4 Maverick",
-   "vendor": "Meta",
-   "scores": {
-    "openrouter": {
-     "price_in_per_1m": 0.15,
-     "price_out_per_1m": 0.6,
-     "context_length": 1048576,
-     "tokens_total": 34432927852
-    },
-    "artificialanalysis": {
-     "intelligence_index": 14.3,
-     "coding_index": 16.3,
-     "price_in_per_1m": 0.35,
-     "price_out_per_1m": 0.85,
-     "price_blended_per_1m": 0.475,
-     "tokens_per_second": 113.248,
-     "ttft_seconds": 0.649
-    },
-    "aider": {
-     "pass_rate": 15.6,
-     "well_formed_pct": 99.1,
-     "total_cost": 0.0
-    }
-   }
-  },
-  "mistral-large": {
-   "name": "Mistral Large",
-   "vendor": "Mistral",
-   "scores": {
-    "openrouter": {
-     "price_in_per_1m": 2.0,
-     "price_out_per_1m": 6.0,
-     "context_length": 128000,
-     "tokens_total": 5819120817
-    },
-    "artificialanalysis": {
-     "intelligence_index": 4.4,
-     "coding_index": null,
-     "price_in_per_1m": 4,
-     "price_out_per_1m": 12,
-     "price_blended_per_1m": 6,
-     "tokens_per_second": 0,
-     "ttft_seconds": 0
-    }
-   }
-  },
-  "kimi-k2": {
-   "name": "Kimi K2",
+  "kimi-k2.7-code": {
+   "name": "Kimi K2.7 Code",
    "vendor": "Moonshot",
    "scores": {
     "openrouter": {
-     "price_in_per_1m": 0.57,
-     "price_out_per_1m": 2.3,
-     "context_length": 131072,
-     "tokens_total": 19044014898
+     "price_in_per_1m": 0.74,
+     "price_out_per_1m": 3.5,
+     "context_length": 262144,
+     "tokens_total": 198908608408
     },
-    "artificialanalysis": {
-     "intelligence_index": 19.4,
-     "coding_index": null,
-     "price_in_per_1m": 0.585,
-     "price_out_per_1m": 2.4,
-     "price_blended_per_1m": 1.039,
-     "tokens_per_second": 36.715,
-     "ttft_seconds": 1.081
+    "livebench": {
+     "average": 71.93
+    }
+   }
+  },
+  "glm-5.2": {
+   "name": "GLM 5.2",
+   "vendor": "Z.ai",
+   "scores": {
+    "openrouter": {
+     "price_in_per_1m": 0.93,
+     "price_out_per_1m": 3.0,
+     "context_length": 1048576,
+     "tokens_total": 2398912349460
     },
-    "aider": {
-     "pass_rate": 59.1,
-     "well_formed_pct": 92.9,
-     "total_cost": 1.2357
+    "livebench": {
+     "average": 76.18
+    }
+   }
+  },
+  "minimax-m3": {
+   "name": "MiniMax M3",
+   "vendor": "MiniMax",
+   "scores": {
+    "openrouter": {
+     "price_in_per_1m": 0.3,
+     "price_out_per_1m": 1.2,
+     "context_length": 1048576,
+     "tokens_total": 3701339534523
+    },
+    "livebench": {
+     "average": 70.05
+    }
+   }
+  },
+  "mistral-large-2512": {
+   "name": "Mistral Large 3",
+   "vendor": "Mistral",
+   "scores": {
+    "openrouter": {
+     "price_in_per_1m": 0.5,
+     "price_out_per_1m": 1.5,
+     "context_length": 262144,
+     "tokens_total": 5105401116
     }
    }
   }
  },
  "ranks": {
   "openrouter": [
+   "deepseek-v4-flash",
+   "minimax-m3",
+   "glm-5.2",
+   "deepseek-v4-pro",
    "claude-opus-4.8",
-   "gpt-5",
+   "gpt-5.5",
+   "gpt-5.4",
+   "gemini-3.5-flash",
    "claude-sonnet-5",
    "claude-haiku-4.5",
-   "qwen3-235b",
-   "gemini-2.5-pro",
+   "qwen3.7-max",
+   "gemini-3.1-pro",
+   "kimi-k2.7-code",
+   "grok-4.3",
+   "gpt-5.3-codex",
    "claude-fable-5",
-   "grok-4",
-   "llama-4-maverick",
-   "kimi-k2",
-   "deepseek-r1",
-   "mistral-large"
+   "mistral-large-2512"
   ],
   "artificialanalysis": [
    "claude-fable-5",
    "claude-opus-4.8",
    "claude-sonnet-5",
-   "gpt-5",
-   "grok-4",
-   "gemini-2.5-pro",
-   "claude-haiku-4.5",
-   "deepseek-r1",
-   "kimi-k2",
-   "llama-4-maverick",
-   "qwen3-235b",
-   "mistral-large"
+   "claude-haiku-4.5"
   ],
-  "aider": [
-   "kimi-k2",
-   "deepseek-r1",
-   "llama-4-maverick"
-  ],
+  "aider": [],
   "livebench": [
+   "gpt-5.5",
+   "gpt-5.4",
+   "gemini-3.1-pro",
    "claude-opus-4.8",
-   "claude-sonnet-5",
    "claude-fable-5",
+   "glm-5.2",
+   "claude-sonnet-5",
+   "gemini-3.5-flash",
+   "qwen3.7-max",
+   "deepseek-v4-pro",
+   "gpt-5.3-codex",
+   "kimi-k2.7-code",
+   "minimax-m3",
+   "deepseek-v4-flash",
+   "grok-4.3",
    "claude-haiku-4.5"
   ]
  },
- "changes": []
+ "changes": [
+  {
+   "type": "new_model",
+   "model": "gpt-5.5",
+   "name": "GPT-5.5"
+  },
+  {
+   "type": "new_model",
+   "model": "gpt-5.4",
+   "name": "GPT-5.4"
+  },
+  {
+   "type": "new_model",
+   "model": "gpt-5.3-codex",
+   "name": "GPT-5.3 Codex"
+  },
+  {
+   "type": "new_model",
+   "model": "gemini-3.5-flash",
+   "name": "Gemini 3.5 Flash"
+  },
+  {
+   "type": "new_model",
+   "model": "gemini-3.1-pro",
+   "name": "Gemini 3.1 Pro"
+  },
+  {
+   "type": "new_model",
+   "model": "grok-4.3",
+   "name": "Grok 4.3"
+  },
+  {
+   "type": "new_model",
+   "model": "deepseek-v4-pro",
+   "name": "DeepSeek V4 Pro"
+  },
+  {
+   "type": "new_model",
+   "model": "deepseek-v4-flash",
+   "name": "DeepSeek V4 Flash"
+  },
+  {
+   "type": "new_model",
+   "model": "qwen3.7-max",
+   "name": "Qwen3.7 Max"
+  },
+  {
+   "type": "new_model",
+   "model": "kimi-k2.7-code",
+   "name": "Kimi K2.7 Code"
+  },
+  {
+   "type": "new_model",
+   "model": "glm-5.2",
+   "name": "GLM 5.2"
+  },
+  {
+   "type": "new_model",
+   "model": "minimax-m3",
+   "name": "MiniMax M3"
+  },
+  {
+   "type": "new_model",
+   "model": "mistral-large-2512",
+   "name": "Mistral Large 3"
+  },
+  {
+   "type": "rank_change",
+   "source": "livebench",
+   "model": "claude-fable-5",
+   "from": 3,
+   "to": 2
+  },
+  {
+   "type": "rank_change",
+   "source": "livebench",
+   "model": "claude-sonnet-5",
+   "from": 2,
+   "to": 3
+  },
+  {
+   "type": "source_stale",
+   "source": "artificialanalysis"
+  }
+ ]
 }
