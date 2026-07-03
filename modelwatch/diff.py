@@ -23,8 +23,12 @@ def diff_snapshots(prev, curr):
                         "to": new_pos,
                     }
                 )
+    prev_sources = prev.get("sources", {})
     for source_id, s in curr.get("sources", {}).items():
-        prev_ok = prev.get("sources", {}).get(source_id, {}).get("ok", True)
-        if prev_ok and s.get("ok") is False:
-            events.append({"type": "source_stale", "source": source_id})
+        # Only a source that previously succeeded can go stale. A source with
+        # no prior entry has no data to lose, so its first-ever failure is not
+        # a staleness event.
+        if source_id in prev_sources and prev_sources[source_id].get("ok") is True:
+            if s.get("ok") is False:
+                events.append({"type": "source_stale", "source": source_id})
     return events

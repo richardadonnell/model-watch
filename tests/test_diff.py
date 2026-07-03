@@ -44,6 +44,21 @@ def test_new_model_does_not_trigger_rank_change():
     assert "rank_change" not in types
 
 
+def test_source_stale_not_emitted_for_never_succeeded_source():
+    # prev has no entry for source 'x' -> its first-ever failure is not "stale".
+    prev = {"models": {}, "ranks": {}, "sources": {}}
+    curr = {"models": {}, "ranks": {}, "sources": {"x": {"ok": False}}}
+    events = diff_snapshots(prev, curr)
+    assert not any(e["type"] == "source_stale" for e in events)
+
+
+def test_source_stale_emitted_when_previously_ok():
+    prev = {"models": {}, "ranks": {}, "sources": {"x": {"ok": True}}}
+    curr = {"models": {}, "ranks": {}, "sources": {"x": {"ok": False}}}
+    events = diff_snapshots(prev, curr)
+    assert any(e["type"] == "source_stale" and e["source"] == "x" for e in events)
+
+
 def test_rank_change_relative_order_swap():
     prev = _snap({"a": {"name": "A"}, "b": {"name": "B"}}, {"src": ["a", "b"]})
     curr = _snap({"a": {"name": "A"}, "b": {"name": "B"}}, {"src": ["b", "a"]})

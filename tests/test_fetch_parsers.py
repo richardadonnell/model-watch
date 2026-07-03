@@ -7,7 +7,14 @@ OR_MODELS = {
             "name": "Anthropic: Claude Sonnet 5",
             "context_length": 1000000,
             "pricing": {"prompt": "0.000002", "completion": "0.00001"},
-        }
+        },
+        {
+            "id": "cohere/command-a",
+            "name": "Cohere: Command A",
+            "canonical_slug": "cohere/command-a",
+            "context_length": 256000,
+            "pricing": {"prompt": "0.0000025", "completion": "0.00001"},
+        },
     ]
 }
 OR_RANKINGS = {
@@ -26,6 +33,23 @@ OR_RANKINGS = {
             "total_prompt_tokens": 40,
             "count": 2,
         },
+        {
+            # Versioned permaslug — differs from the models-endpoint id
+            # "cohere/command-a" by a version suffix.
+            "date": "2026-07-02",
+            "model_permaslug": "cohere/command-a-03-2025",
+            "total_completion_tokens": 200,
+            "total_prompt_tokens": 800,
+            "count": 7,
+        },
+        {
+            # Present-but-null token field must be treated as 0, not crash.
+            "date": "2026-07-02",
+            "model_permaslug": "openai/gpt-5",
+            "total_completion_tokens": None,
+            "total_prompt_tokens": 10,
+            "count": 1,
+        },
     ]
 }
 
@@ -37,6 +61,20 @@ def test_openrouter_parse_normalizes_price_per_million():
     assert row["metrics"]["price_out_per_1m"] == 10.0
     assert row["metrics"]["tokens_total"] == 100
     assert row["metrics"]["context_length"] == 1000000
+
+
+def test_openrouter_parse_joins_versioned_permaslug():
+    # rankings permaslug "cohere/command-a-03-2025" must map onto the
+    # models-endpoint id "cohere/command-a" via version-suffix match.
+    rows = openrouter.parse(OR_MODELS, OR_RANKINGS)
+    row = next(r for r in rows if r["raw_name"] == "cohere/command-a")
+    assert row["metrics"]["tokens_total"] == 1000
+
+
+def test_openrouter_parse_handles_null_token_counts():
+    # A present-but-null token field must not raise (fail-soft the source).
+    rows = openrouter.parse(OR_MODELS, OR_RANKINGS)
+    assert rows  # did not raise
 
 
 AA = {
