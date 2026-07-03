@@ -1,9 +1,9 @@
 {
- "generated_at": "2026-07-03T19:50:30Z",
+ "generated_at": "2026-07-03T19:54:35Z",
  "sources": {
   "openrouter": {
    "ok": true,
-   "fetched_at": "2026-07-03T19:50:30Z",
+   "fetched_at": "2026-07-03T19:54:35Z",
    "stale_since": null
   },
   "artificialanalysis": {
@@ -13,12 +13,12 @@
   },
   "aider": {
    "ok": true,
-   "fetched_at": "2026-07-03T19:50:30Z",
+   "fetched_at": "2026-07-03T19:54:35Z",
    "stale_since": null
   },
   "livebench": {
    "ok": true,
-   "fetched_at": "2026-07-03T19:50:30Z",
+   "fetched_at": "2026-07-03T19:54:35Z",
    "stale_since": null
   },
   "llmstats": {
