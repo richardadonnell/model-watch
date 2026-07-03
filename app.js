@@ -48,17 +48,29 @@ function renderTable(latest) {
   function draw() {
     const arrow = i => i === sortI ? (desc ? " ▼" : " ▲") : "";
     const head = "<tr><th data-k='name'>Model</th><th>Vendor</th>" +
-      METRIC_COLS.map((c, i) =>
-        `<th data-i="${i}"${i === sortI ? ' class="sorted"' : ""}>${esc(c[2])}${arrow(i)}</th>`).join("") + "</tr>";
+      METRIC_COLS.map((c, i) => {
+        const active = i === sortI;
+        const sort = active ? ` aria-sort="${desc ? "descending" : "ascending"}"` : "";
+        return `<th data-i="${i}" tabindex="0" scope="col"${active ? ' class="sorted"' : ""}${sort}>${esc(c[2])}${arrow(i)}</th>`;
+      }).join("") + "</tr>";
     rows.sort((a, b) => ((b.vals[sortI] ?? -Infinity) - (a.vals[sortI] ?? -Infinity)) * (desc ? 1 : -1));
-    t.innerHTML = head + rows.map(r =>
+    const body = rows.map(r =>
       `<tr><td>${esc(r.name)}</td><td>${esc(r.vendor)}</td>` +
       r.vals.map((v, i) => {
         const cls = i === sortI ? ' class="col-active"' : "";
         return `<td${cls}>${v == null ? '<span class="nil">–</span>' : esc(fmt(v))}</td>`;
       }).join("") + "</tr>").join("");
-    t.querySelectorAll("th[data-i]").forEach(th =>
-      th.onclick = () => { const i = +th.dataset.i; desc = i === sortI ? !desc : true; sortI = i; draw(); });
+    t.innerHTML = `<thead>${head}</thead><tbody>${body}</tbody>`;
+    t.querySelectorAll("th[data-i]").forEach(th => {
+      const act = () => {
+        const i = +th.dataset.i;
+        desc = i === sortI ? !desc : true; sortI = i;
+        draw();
+        t.querySelector("th.sorted")?.focus();
+      };
+      th.onclick = act;
+      th.onkeydown = e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); act(); } };
+    });
   }
   draw();
 }
