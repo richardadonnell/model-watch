@@ -13,9 +13,20 @@ class Registry:
         for m in models:
             for source_id, names in (m.get("aliases") or {}).items():
                 for n in names:
-                    self._lookup[(source_id, _norm(n))] = m["id"]
-            self._lookup[("*", _norm(m["id"]))] = m["id"]
-            self._lookup[("*", _norm(m["name"]))] = m["id"]
+                    self._insert((source_id, _norm(n)), m["id"])
+            self._insert(("*", _norm(m["id"])), m["id"])
+            self._insert(("*", _norm(m["name"])), m["id"])
+
+    def _insert(self, key: tuple[str, str], canonical_id: str) -> None:
+        existing = self._lookup.get(key)
+        if existing is not None and existing != canonical_id:
+            source_id, normalized_name = key
+            raise ValueError(
+                f"alias collision for key (source_id={source_id!r}, "
+                f"normalized_name={normalized_name!r}): "
+                f"already mapped to {existing!r}, cannot also map to {canonical_id!r}"
+            )
+        self._lookup[key] = canonical_id
 
     def canonical_id(self, source_id: str, raw_name: str) -> str | None:
         key = _norm(raw_name)
