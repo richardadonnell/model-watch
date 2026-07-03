@@ -1,0 +1,50 @@
+# Canonical frontier shortlist. aliases: per-source raw names as they appear in that source's feed.
+models:
+  - id: claude-fable-5
+    name: Claude Fable 5
+    vendor: Anthropic
+    aliases: {openrouter: ["anthropic/claude-fable-5"]}
+  - id: claude-opus-4.8
+    name: Claude Opus 4.8
+    vendor: Anthropic
+    aliases: {openrouter: ["anthropic/claude-opus-4.8"]}
+  - id: claude-sonnet-5
+    name: Claude Sonnet 5
+    vendor: Anthropic
+    aliases: {openrouter: ["anthropic/claude-sonnet-5"]}
+  - id: claude-haiku-4.5
+    name: Claude Haiku 4.5
+    vendor: Anthropic
+    aliases: {openrouter: ["anthropic/claude-haiku-4.5"]}
+  - id: gpt-5
+    name: GPT-5
+    vendor: OpenAI
+    aliases: {openrouter: ["openai/gpt-5"]}
+  - id: gemini-2.5-pro
+    name: Gemini 2.5 Pro
+    vendor: Google
+    aliases: {openrouter: ["google/gemini-2.5-pro"]}
+  - id: grok-4
+    name: Grok 4
+    vendor: xAI
+    aliases: {openrouter: ["x-ai/grok-4"]}
+  - id: deepseek-r1
+    name: DeepSeek R1
+    vendor: DeepSeek
+    aliases: {openrouter: ["deepseek/deepseek-r1"]}
+  - id: qwen3-235b
+    name: Qwen3 235B
+    vendor: Alibaba
+    aliases: {openrouter: ["qwen/qwen3-235b-a22b"]}
+  - id: llama-4-maverick
+    name: Llama 4 Maverick
+    vendor: Meta
+    aliases: {openrouter: ["meta-llama/llama-4-maverick"]}
+  - id: mistral-large
+    name: Mistral Large
+    vendor: Mistral
+    aliases: {openrouter: ["mistralai/mistral-large"]}
+  - id: kimi-k2
+    name: Kimi K2
+    vendor: Moonshot
+    aliases: {openrouter: ["moonshotai/kimi-k2"]}
