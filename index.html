@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>model-watch</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header>
+  <h1>model-watch</h1>
+  <p id="generated-at"></p>
+</header>
+<main>
+  <section id="changes"><h2>What changed</h2><ul id="changes-list"></ul></section>
+  <section id="table"><h2>Models</h2><div class="scroll"><table id="model-table"></table></div></section>
+  <section id="charts">
+    <h2>Charts</h2>
+    <div class="chart-box"><canvas id="scatter"></canvas></div>
+    <div id="sparklines"></div>
+  </section>
+  <section id="sources"><h2>Leaderboards</h2><div id="source-cards"></div></section>
+</main>
+<footer>
+  Intelligence, speed &amp; price data by <a href="https://artificialanalysis.ai/">Artificial Analysis</a>.
+  Usage data by <a href="https://openrouter.ai/rankings">OpenRouter</a>.
+</footer>
+<script src="vendor/chart.umd.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
