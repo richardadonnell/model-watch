@@ -162,6 +162,16 @@ tbody tr:hover td { background: var(--surface); }
 td.col-active { background: var(--accent-soft); }
 tbody tr:hover td.col-active { background: color-mix(in oklab, var(--accent-soft), var(--surface) 40%); }
 
+/* Model column stays put while numbers scroll horizontally (mobile). */
+th:first-child, td:first-child {
+  position: sticky;
+  left: 0;
+  background: var(--bg);
+  border-right: 1px solid var(--line-soft);
+}
+tbody tr:nth-child(even) td:first-child { background: oklch(0.170 0.006 85); }
+tbody tr:hover td:first-child { background: var(--surface); }
+
 .nil { color: var(--fg-mute); opacity: 0.45; }
 
 /* ---- changes feed: a terse log ---- */
@@ -246,4 +256,17 @@ footer {
 @media (prefers-reduced-motion: reduce) {
   .masthead, .panel { animation: none; }
   .live-dot { animation: none; }
+}
+
+/* ---- mobile ---- */
+@media (max-width: 640px) {
+  body { padding: var(--sp-4) var(--sp-3); }
+  .masthead { flex-direction: column; align-items: flex-start; gap: var(--sp-2); }
+  .tagline { display: none; }
+  .readout { font-size: 0.72rem; }
+  .marker { flex-wrap: wrap; gap: var(--sp-2); }
+  .marker-sub { white-space: normal; }
+  .panel { margin-bottom: var(--sp-8); }
+  th, td { padding: 0.6rem 0.55rem; }
+  .grid { grid-template-columns: 1fr; }
 }

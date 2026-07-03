@@ -24,7 +24,10 @@ function fmt(v) {
 
 function renderChanges(changes, models) {
   const ul = document.getElementById("changes-list");
-  if (!changes.length) { ul.innerHTML = "<li>No changes since last build.</li>"; return; }
+  if (!changes.length) {
+    ul.innerHTML = "<li>Steady since the last build — new models, rank moves, and price shifts land here when a leaderboard changes.</li>";
+    return;
+  }
   for (const e of changes) {
     const li = document.createElement("li");
     const name = models[e.model]?.name ?? e.model;
