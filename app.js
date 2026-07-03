@@ -10,6 +10,12 @@ const METRIC_COLS = [
   ["artificialanalysis", "price_blended_per_1m", "$/1M blend"],
 ];
 
+function esc(s) {
+  return String(s ?? "").replace(/[&<>"']/g, c => ({
+    "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;",
+  }[c]));
+}
+
 function fmt(v) {
   if (v == null) return "–";
   if (v >= 1e9) return (v / 1e9).toFixed(1) + "B";
@@ -43,8 +49,8 @@ function renderTable(latest) {
   function draw() {
     rows.sort((a, b) => ((b.vals[sortI] ?? -Infinity) - (a.vals[sortI] ?? -Infinity)) * (desc ? 1 : -1));
     t.innerHTML = head + rows.map(r =>
-      `<tr><td>${r.name}</td><td>${r.vendor}</td>` +
-      r.vals.map(v => `<td>${fmt(v)}</td>`).join("") + "</tr>").join("");
+      `<tr><td>${esc(r.name)}</td><td>${esc(r.vendor)}</td>` +
+      r.vals.map(v => `<td>${esc(fmt(v))}</td>`).join("") + "</tr>").join("");
     t.querySelectorAll("th[data-i]").forEach(th =>
       th.onclick = () => { const i = +th.dataset.i; desc = i === sortI ? !desc : true; sortI = i; draw(); });
   }
@@ -65,13 +71,13 @@ function renderSources(sourcesDoc, latest) {
       const status = latest.sources[s.id];
       let top = "";
       if (s.fetched && status) {
-        const stale = status.ok ? "" : ` <span class="stale">stale since ${status.stale_since ?? "?"}</span>`;
+        const stale = status.ok ? "" : ` <span class="stale">stale since ${esc(status.stale_since ?? "?")}</span>`;
         const top5 = (latest.ranks[s.id] || []).slice(0, 5)
-          .map((mid, i) => `<li>${i + 1}. ${latest.models[mid]?.name ?? mid}</li>`).join("");
-        top = `<ol class="top5">${top5}</ol><small>updated ${status.fetched_at ?? "?"}${stale}</small>`;
+          .map((mid, i) => `<li>${i + 1}. ${esc(latest.models[mid]?.name ?? mid)}</li>`).join("");
+        top = `<ol class="top5">${top5}</ol><small>updated ${esc(status.fetched_at ?? "?")}${stale}</small>`;
       }
-      card.innerHTML = `<a href="${s.url}"><strong>${s.name}</strong></a>
-        <p>${s.note ?? ""}</p>${top}`;
+      card.innerHTML = `<a href="${esc(s.url)}"><strong>${esc(s.name)}</strong></a>
+        <p>${esc(s.note ?? "")}</p>${top}`;
       grid.appendChild(card);
     }
     box.appendChild(grid);
@@ -97,7 +103,7 @@ function renderCharts(latest, trends) {
     const series = srcs.artificialanalysis?.intelligence_index;
     if (!series || series.length < 2) continue;
     const wrap = document.createElement("div"); wrap.className = "spark";
-    wrap.innerHTML = `<span>${latest.models[mid]?.name ?? mid}</span><canvas height="40"></canvas>`;
+    wrap.innerHTML = `<span>${esc(latest.models[mid]?.name ?? mid)}</span><canvas height="40"></canvas>`;
     sp.appendChild(wrap);
     new Chart(wrap.querySelector("canvas"), {
       type: "line",
