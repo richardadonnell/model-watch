@@ -1,0 +1,201 @@
+{
+ "generated_at": "2026-07-03T18:32:19Z",
+ "sources": {
+  "openrouter": {
+   "ok": true,
+   "fetched_at": "2026-07-03T18:32:19Z",
+   "stale_since": null
+  },
+  "artificialanalysis": {
+   "ok": false,
+   "fetched_at": null,
+   "stale_since": null
+  },
+  "aider": {
+   "ok": true,
+   "fetched_at": "2026-07-03T18:32:19Z",
+   "stale_since": null
+  },
+  "livebench": {
+   "ok": true,
+   "fetched_at": "2026-07-03T18:32:19Z",
+   "stale_since": null
+  },
+  "llmstats": {
+   "ok": false,
+   "fetched_at": null,
+   "stale_since": null
+  }
+ },
+ "models": {
+  "claude-fable-5": {
+   "name": "Claude Fable 5",
+   "vendor": "Anthropic",
+   "scores": {
+    "openrouter": {
+     "price_in_per_1m": 10.0,
+     "price_out_per_1m": 50.0,
+     "context_length": 1000000,
+     "tokens_total": null
+    }
+   }
+  },
+  "claude-opus-4.8": {
+   "name": "Claude Opus 4.8",
+   "vendor": "Anthropic",
+   "scores": {
+    "openrouter": {
+     "price_in_per_1m": 5.0,
+     "price_out_per_1m": 25.0,
+     "context_length": 1000000,
+     "tokens_total": null
+    }
+   }
+  },
+  "claude-sonnet-5": {
+   "name": "Claude Sonnet 5",
+   "vendor": "Anthropic",
+   "scores": {
+    "openrouter": {
+     "price_in_per_1m": 2.0,
+     "price_out_per_1m": 10.0,
+     "context_length": 1000000,
+     "tokens_total": null
+    }
+   }
+  },
+  "claude-haiku-4.5": {
+   "name": "Claude Haiku 4.5",
+   "vendor": "Anthropic",
+   "scores": {
+    "openrouter": {
+     "price_in_per_1m": 1.0,
+     "price_out_per_1m": 5.0,
+     "context_length": 200000,
+     "tokens_total": null
+    }
+   }
+  },
+  "gpt-5": {
+   "name": "GPT-5",
+   "vendor": "OpenAI",
+   "scores": {
+    "openrouter": {
+     "price_in_per_1m": 1.25,
+     "price_out_per_1m": 10.0,
+     "context_length": 400000,
+     "tokens_total": null
+    }
+   }
+  },
+  "gemini-2.5-pro": {
+   "name": "Gemini 2.5 Pro",
+   "vendor": "Google",
+   "scores": {
+    "openrouter": {
+     "price_in_per_1m": 1.25,
+     "price_out_per_1m": 10.0,
+     "context_length": 1048576,
+     "tokens_total": 88031311851
+    }
+   }
+  },
+  "grok-4": {
+   "name": "Grok 4",
+   "vendor": "xAI",
+   "scores": {}
+  },
+  "deepseek-r1": {
+   "name": "DeepSeek R1",
+   "vendor": "DeepSeek",
+   "scores": {
+    "openrouter": {
+     "price_in_per_1m": 0.7,
+     "price_out_per_1m": 2.5,
+     "context_length": 163840,
+     "tokens_total": 3728561624
+    },
+    "aider": {
+     "pass_rate": 56.9,
+     "well_formed_pct": 96.9,
+     "total_cost": 5.4193
+    }
+   }
+  },
+  "qwen3-235b": {
+   "name": "Qwen3 235B",
+   "vendor": "Alibaba",
+   "scores": {
+    "openrouter": {
+     "price_in_per_1m": 0.455,
+     "price_out_per_1m": 1.82,
+     "context_length": 131072,
+     "tokens_total": null
+    }
+   }
+  },
+  "llama-4-maverick": {
+   "name": "Llama 4 Maverick",
+   "vendor": "Meta",
+   "scores": {
+    "openrouter": {
+     "price_in_per_1m": 0.15,
+     "price_out_per_1m": 0.6,
+     "context_length": 1048576,
+     "tokens_total": null
+    },
+    "aider": {
+     "pass_rate": 15.6,
+     "well_formed_pct": 99.1,
+     "total_cost": 0.0
+    }
+   }
+  },
+  "mistral-large": {
+   "name": "Mistral Large",
+   "vendor": "Mistral",
+   "scores": {
+    "openrouter": {
+     "price_in_per_1m": 2.0,
+     "price_out_per_1m": 6.0,
+     "context_length": 128000,
+     "tokens_total": 598608898
+    }
+   }
+  },
+  "kimi-k2": {
+   "name": "Kimi K2",
+   "vendor": "Moonshot",
+   "scores": {
+    "openrouter": {
+     "price_in_per_1m": 0.57,
+     "price_out_per_1m": 2.3,
+     "context_length": 131072,
+     "tokens_total": 2810505207
+    },
+    "aider": {
+     "pass_rate": 59.1,
+     "well_formed_pct": 92.9,
+     "total_cost": 1.2357
+    }
+   }
+  }
+ },
+ "ranks": {
+  "openrouter": [
+   "gemini-2.5-pro",
+   "deepseek-r1",
+   "kimi-k2",
+   "mistral-large"
+  ],
+  "artificialanalysis": [],
+  "aider": [
+   "kimi-k2",
+   "deepseek-r1",
+   "llama-4-maverick"
+  ],
+  "livebench": [],
+  "llmstats": []
+ },
+ "changes": []
+}
