@@ -5,6 +5,7 @@ on:
   workflow_dispatch:
 permissions:
   contents: write
+  issues: write
 concurrency: build
 jobs:
   build:
@@ -28,3 +29,17 @@ jobs:
           git add data/
           git diff --cached --quiet || git commit -m "chore: daily data refresh"
           git push
+      - name: Weekly model suggestions
+        if: github.event_name == 'schedule'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          [ "$(date -u +%u)" = "1" ] || exit 0   # Mondays only (UTC)
+          [ -f data/suggestions.json ] || exit 0  # nothing to report
+          python scripts/format_suggestions.py data/suggestions.json > body.md
+          n="$(gh issue list --search '"🔭 New model suggestions" in:title' --state open --json number --jq '.[0].number')"
+          if [ -n "$n" ]; then
+            gh issue edit "$n" --body-file body.md
+          else
+            gh issue create --title "🔭 New model suggestions" --body-file body.md
+          fi
