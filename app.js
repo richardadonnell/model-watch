@@ -41,14 +41,15 @@ function renderChanges(changes, models) {
 
 function renderTable(latest) {
   const t = document.getElementById("model-table");
-  const head = "<tr><th data-k='name'>Model</th><th>Vendor</th>" +
-    METRIC_COLS.map((c, i) => `<th data-i="${i}">${c[2]}</th>`).join("") + "</tr>";
   const rows = Object.entries(latest.models)
     .filter(([, m]) => Object.keys(m.scores).length)
     .map(([id, m]) => ({ id, name: m.name, vendor: m.vendor,
       vals: METRIC_COLS.map(([s, k]) => m.scores[s]?.[k] ?? null) }));
   let sortI = 0, desc = true;
   function draw() {
+    const arrow = i => i === sortI ? (desc ? " ▼" : " ▲") : "";
+    const head = "<tr><th data-k='name'>Model</th><th>Vendor</th>" +
+      METRIC_COLS.map((c, i) => `<th data-i="${i}">${esc(c[2])}${arrow(i)}</th>`).join("") + "</tr>";
     rows.sort((a, b) => ((b.vals[sortI] ?? -Infinity) - (a.vals[sortI] ?? -Infinity)) * (desc ? 1 : -1));
     t.innerHTML = head + rows.map(r =>
       `<tr><td>${esc(r.name)}</td><td>${esc(r.vendor)}</td>` +
@@ -73,15 +74,20 @@ function renderSources(sourcesDoc, latest) {
       const status = latest.sources[s.id];
       let top = "";
       if (s.fetched && status) {
-        const stale = status.ok ? "" : ` <span class="stale">stale since ${esc(status.stale_since ?? "?")}</span>`;
-        const top5 = (latest.ranks[s.id] || []).slice(0, 5)
-          .map((mid, i) => `<li>${i + 1}. ${esc(latest.models[mid]?.name ?? mid)}</li>`).join("");
-        // Some sources serve older data than the fetch time — surface the
-        // source's own data date when it differs from the fetch day.
-        const fetchDay = (status.fetched_at ?? "").slice(0, 10);
-        const dataAsOf = status.data_date && status.data_date !== fetchDay
-          ? ` <span class="asof">data as of ${esc(status.data_date)}</span>` : "";
-        top = `<ol class="top5">${top5}</ol><small>updated ${esc(status.fetched_at ?? "?")}${dataAsOf}${stale}</small>`;
+        if (!status.ok && !status.fetched_at) {
+          // Never fetched successfully — no data to be "stale", just absent.
+          top = `<small class="asof">no data yet</small>`;
+        } else {
+          const stale = status.ok ? "" : ` <span class="stale">stale since ${esc(status.stale_since ?? "?")}</span>`;
+          const top5 = (latest.ranks[s.id] || []).slice(0, 5)
+            .map((mid, i) => `<li>${i + 1}. ${esc(latest.models[mid]?.name ?? mid)}</li>`).join("");
+          // Some sources serve older data than the fetch time — surface the
+          // source's own data date when it differs from the fetch day.
+          const fetchDay = (status.fetched_at ?? "").slice(0, 10);
+          const dataAsOf = status.data_date && status.data_date !== fetchDay
+            ? ` <span class="asof">data as of ${esc(status.data_date)}</span>` : "";
+          top = `<ol class="top5">${top5}</ol><small>updated ${esc(status.fetched_at ?? "?")}${dataAsOf}${stale}</small>`;
+        }
       }
       card.innerHTML = `<a href="${esc(s.url)}"><strong>${esc(s.name)}</strong></a>
         <p>${esc(s.note ?? "")}</p>${top}`;
@@ -97,7 +103,13 @@ function renderCharts(latest, trends) {
     return aa?.intelligence_index != null && aa?.price_blended_per_1m != null
       ? { x: aa.price_blended_per_1m, y: aa.intelligence_index, label: m.name } : null;
   }).filter(Boolean);
-  new Chart(document.getElementById("scatter"), {
+  const scatterEl = document.getElementById("scatter");
+  if (!pts.length) {
+    scatterEl.replaceWith(Object.assign(document.createElement("p"),
+      { className: "asof", textContent: "Intelligence-vs-price chart needs Artificial Analysis data (add an API key)." }));
+    return;
+  }
+  new Chart(scatterEl, {
     type: "scatter",
     data: { datasets: [{ label: "Intelligence vs $/1M (blended)", data: pts }] },
     options: { plugins: { tooltip: { callbacks: {
