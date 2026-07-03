@@ -31,6 +31,7 @@ jobs:
           git push
       - name: Weekly model suggestions
         if: github.event_name == 'schedule'
+        continue-on-error: true   # a gh hiccup must never fail the daily build/commit
         env:
           GH_TOKEN: ${{ github.token }}
         run: |

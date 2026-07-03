@@ -27,3 +27,18 @@ def test_non_empty_groups_by_source_and_includes_raw_name():
 def test_empty_returns_no_suggestions_message():
     body = format_body([])
     assert "no new" in body.lower()
+
+
+def test_pipe_in_raw_name_is_escaped():
+    body = format_body(
+        [
+            {
+                "source": "openrouter",
+                "raw_name": "vendor/mo|del",
+                "metric": "tokens_total",
+                "value": 5,
+            }
+        ]
+    )
+    assert "vendor/mo\\|del" in body
+    assert "| vendor/mo|del |" not in body

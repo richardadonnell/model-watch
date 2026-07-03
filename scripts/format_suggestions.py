@@ -36,7 +36,10 @@ def format_body(suggestions: list[dict]) -> str:
         parts.append("| raw_name | metric | value |")
         parts.append("| --- | --- | --- |")
         for it in items:
-            parts.append(f"| {it['raw_name']} | {it['metric']} | {it['value']} |")
+            # raw_name comes from external APIs — escape pipes so a name
+            # containing "|" can't break the markdown table layout.
+            name = str(it["raw_name"]).replace("|", "\\|")
+            parts.append(f"| {name} | {it['metric']} | {it['value']} |")
         parts.append("")
     return "\n".join(parts) + "\n"
 
