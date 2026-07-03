@@ -5,27 +5,49 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>model-watch</title>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><text y='14' font-size='14'>📊</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500;600&family=Saira+Semi+Condensed:wght@400;500;600;700&display=swap">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<header>
-  <h1>model-watch</h1>
-  <p id="generated-at"></p>
+<header class="masthead">
+  <div class="brand">
+    <span class="live-dot" aria-hidden="true"></span>
+    <h1>model&#8202;/&#8202;watch</h1>
+    <span class="tagline">frontier LLM telemetry</span>
+  </div>
+  <p id="generated-at" class="readout"></p>
 </header>
+
 <main>
-  <section id="changes"><h2>What changed</h2><ul id="changes-list"></ul></section>
-  <section id="table"><h2>Models</h2><div class="scroll"><table id="model-table"></table></div></section>
-  <section id="charts">
-    <h2>Charts</h2>
+  <section id="changes" class="panel">
+    <div class="marker"><span>signal</span><span class="marker-sub">changes since last build</span></div>
+    <ul id="changes-list"></ul>
+  </section>
+
+  <section id="table" class="panel">
+    <div class="marker"><span>models</span><span class="marker-sub">sort any column</span></div>
+    <div class="scroll"><table id="model-table"></table></div>
+  </section>
+
+  <section id="charts" class="panel">
+    <div class="marker"><span>intelligence &times; price</span><span class="marker-sub">Artificial Analysis index vs $/1M blended</span></div>
     <div class="chart-box"><canvas id="scatter"></canvas></div>
     <div id="sparklines"></div>
   </section>
-  <section id="sources"><h2>Leaderboards</h2><div id="source-cards"></div></section>
+
+  <section id="sources" class="panel">
+    <div class="marker"><span>leaderboards</span><span class="marker-sub">sources &amp; launchpad</span></div>
+    <div id="source-cards"></div>
+  </section>
 </main>
+
 <footer>
   Intelligence, speed &amp; price data by <a href="https://artificialanalysis.ai/">Artificial Analysis</a>.
   Usage data by <a href="https://openrouter.ai/rankings">OpenRouter</a>.
 </footer>
+
 <script src="vendor/chart.umd.js"></script>
 <script src="app.js"></script>
 </body>

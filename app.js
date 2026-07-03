@@ -48,11 +48,15 @@ function renderTable(latest) {
   function draw() {
     const arrow = i => i === sortI ? (desc ? " ▼" : " ▲") : "";
     const head = "<tr><th data-k='name'>Model</th><th>Vendor</th>" +
-      METRIC_COLS.map((c, i) => `<th data-i="${i}">${esc(c[2])}${arrow(i)}</th>`).join("") + "</tr>";
+      METRIC_COLS.map((c, i) =>
+        `<th data-i="${i}"${i === sortI ? ' class="sorted"' : ""}>${esc(c[2])}${arrow(i)}</th>`).join("") + "</tr>";
     rows.sort((a, b) => ((b.vals[sortI] ?? -Infinity) - (a.vals[sortI] ?? -Infinity)) * (desc ? 1 : -1));
     t.innerHTML = head + rows.map(r =>
       `<tr><td>${esc(r.name)}</td><td>${esc(r.vendor)}</td>` +
-      r.vals.map(v => `<td>${esc(fmt(v))}</td>`).join("") + "</tr>").join("");
+      r.vals.map((v, i) => {
+        const cls = i === sortI ? ' class="col-active"' : "";
+        return `<td${cls}>${v == null ? '<span class="nil">–</span>' : esc(fmt(v))}</td>`;
+      }).join("") + "</tr>").join("");
     t.querySelectorAll("th[data-i]").forEach(th =>
       th.onclick = () => { const i = +th.dataset.i; desc = i === sortI ? !desc : true; sortI = i; draw(); });
   }
@@ -136,7 +140,10 @@ function renderCharts(latest, trends) {
 (async () => {
   const [latest, trends, sourcesDoc] = await Promise.all([
     loadJSON("data/latest.json"), loadJSON("data/trends.json"), loadJSON("data/sources.json")]);
-  document.getElementById("generated-at").textContent = `Data as of ${latest.generated_at}`;
+  const okCount = Object.values(latest.sources).filter(s => s.ok).length;
+  const total = Object.keys(latest.sources).length;
+  document.getElementById("generated-at").textContent =
+    `${okCount}/${total} sources live · updated ${latest.generated_at}`;
   renderChanges(latest.changes ?? [], latest.models);
   renderTable(latest);
   renderSources(sourcesDoc, latest);
