@@ -54,15 +54,19 @@ function renderChanges(changes, models) {
 
 function renderTable(latest) {
   const t = document.getElementById("model-table");
+  // Drop columns with no data for any tracked model (e.g. a leaderboard whose
+  // roster no longer overlaps the shortlist) — they reappear when data returns.
+  const cols = METRIC_COLS.filter(([s, k]) =>
+    Object.values(latest.models).some(m => m.scores[s]?.[k] != null));
   const rows = Object.entries(latest.models)
     .filter(([, m]) => Object.keys(m.scores).length)
     .map(([id, m]) => ({ id, name: m.name, vendor: m.vendor,
-      vals: METRIC_COLS.map(([s, k]) => m.scores[s]?.[k] ?? null) }));
+      vals: cols.map(([s, k]) => m.scores[s]?.[k] ?? null) }));
   let sortI = 0, desc = true;
   function draw() {
     const arrow = i => i === sortI ? (desc ? " ▼" : " ▲") : "";
     const head = "<tr><th data-k='name'>Model</th><th>Vendor</th>" +
-      METRIC_COLS.map((c, i) => {
+      cols.map((c, i) => {
         const active = i === sortI;
         const sort = active ? ` aria-sort="${desc ? "descending" : "ascending"}"` : "";
         return `<th data-i="${i}" tabindex="0" scope="col"${active ? ' class="sorted"' : ""}${sort}>${esc(c[2])}${arrow(i)}</th>`;
@@ -115,7 +119,11 @@ function renderSources(sourcesDoc, latest) {
           const fetchDay = (status.fetched_at ?? "").slice(0, 10);
           const dataAsOf = status.data_date && status.data_date !== fetchDay
             ? ` <span class="asof">data as of ${esc(status.data_date)}</span>` : "";
-          top = `<ol class="top5">${top5}</ol><small>updated ${esc(fmtDate(status.fetched_at))}${dataAsOf}${stale}</small>`;
+          // Fetch succeeded but zero tracked models matched this source's
+          // roster (e.g. a leaderboard that stopped adding current models).
+          const list = top5 ? `<ol class="top5">${top5}</ol>`
+            : `<small class="asof">no tracked models on this leaderboard</small>`;
+          top = `${list}<small>checked ${esc(fmtDate(status.fetched_at))}${dataAsOf}${stale}</small>`;
         }
       }
       card.innerHTML = `<a href="${esc(s.url)}"><strong>${esc(s.name)}</strong></a>
