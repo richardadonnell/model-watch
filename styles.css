@@ -21,6 +21,7 @@
   --accent-soft: oklch(0.830 0.140 78 / 0.14);
   --up:   oklch(0.760 0.140 150);             /* rank/price up */
   --down: oklch(0.680 0.130 32);              /* rank/price down, stale */
+  --plot: oklch(0.740 0.070 85);              /* single-series scatter marks */
 
   --sp-2: 8px; --sp-3: 12px; --sp-4: 16px;
   --sp-6: 24px; --sp-8: 32px; --sp-12: 48px;

@@ -112,14 +112,69 @@ function renderCharts(latest, trends) {
       { className: "asof", textContent: "Intelligence-vs-price chart needs Artificial Analysis data (add an API key)." }));
     return;
   }
+  // Instrument palette for canvas (Chart.js color engine can't parse oklch()).
+  const C = {
+    plot: "#b39a72", ink: "#b6a893", mute: "#8a8171", grid: "#38342c",
+    accent: "#e3aa5c", surface: "#2e2a24", line: "#4a453b", fg: "#eceae4",
+  };
+  const SANS = '"Saira Semi Condensed", system-ui, sans-serif';
+  const MONO = '"Geist Mono", ui-monospace, monospace';
+  Chart.defaults.font.family = SANS;
+  Chart.defaults.color = C.mute;
+
+  // Direct-label only the two standouts: top intelligence, best value (intel/$).
+  const topIntel = [...pts].sort((a, b) => b.y - a.y)[0];
+  const bestValue = [...pts].sort((a, b) => b.y / b.x - a.y / a.x)[0];
+  const labelled = new Set([topIntel, bestValue]);
+  const callouts = {
+    id: "callouts",
+    afterDatasetsDraw(chart) {
+      const { ctx } = chart;
+      ctx.save();
+      ctx.font = "600 11px " + SANS;
+      ctx.fillStyle = C.accent;
+      ctx.textAlign = "left";
+      chart.getDatasetMeta(0).data.forEach((pt, i) => {
+        if (labelled.has(pts[i])) ctx.fillText(pts[i].label, pt.x + 8, pt.y + 4);
+      });
+      ctx.restore();
+    },
+  };
+
+  const axis = (text) => ({
+    title: { display: true, text, color: C.mute, font: { family: SANS, size: 12 } },
+    grid: { color: C.grid, drawTicks: false },
+    border: { color: C.line },
+    ticks: { color: C.mute, font: { family: MONO, size: 10 } },
+  });
   new Chart(scatterEl, {
     type: "scatter",
-    data: { datasets: [{ label: "Intelligence vs $/1M (blended)", data: pts }] },
-    options: { plugins: { tooltip: { callbacks: {
-        label: c => `${c.raw.label}: ${c.raw.y} @ $${c.raw.x}/1M` } } },
-      scales: { x: { title: { display: true, text: "$ per 1M tokens (blended)" }, type: "logarithmic" },
-                y: { title: { display: true, text: "AA Intelligence Index" } } } },
+    data: { datasets: [{
+      data: pts, pointBackgroundColor: C.plot, pointBorderColor: "transparent",
+      pointRadius: 4, pointHoverRadius: 7, pointHoverBackgroundColor: C.accent,
+    }] },
+    options: {
+      layout: { padding: { right: 76, top: 8 } },
+      plugins: {
+        legend: { display: false },
+        tooltip: {
+          backgroundColor: C.surface, titleColor: C.fg, bodyColor: C.ink,
+          borderColor: C.line, borderWidth: 1, padding: 8, displayColors: false,
+          titleFont: { family: SANS, weight: "600" }, bodyFont: { family: MONO },
+          callbacks: {
+            title: (c) => c[0].raw.label,
+            label: (c) => `intel ${c.raw.y}  ·  $${c.raw.x}/1M`,
+          },
+        },
+      },
+      scales: {
+        x: { type: "logarithmic", ...axis("$ / 1M tokens (blended)") },
+        y: axis("AA intelligence index"),
+      },
+    },
+    plugins: [callouts],
   });
+
   const sp = document.getElementById("sparklines");
   for (const [mid, srcs] of Object.entries(trends)) {
     const series = srcs.artificialanalysis?.intelligence_index;
@@ -130,8 +185,9 @@ function renderCharts(latest, trends) {
     new Chart(wrap.querySelector("canvas"), {
       type: "line",
       data: { labels: series.map(p => p[0]),
-              datasets: [{ data: series.map(p => p[1]), pointRadius: 0, borderWidth: 1.5 }] },
-      options: { plugins: { legend: { display: false } },
+              datasets: [{ data: series.map(p => p[1]), borderColor: C.ink,
+                           borderWidth: 1.5, pointRadius: 0, tension: 0.25 }] },
+      options: { plugins: { legend: { display: false }, tooltip: { enabled: false } },
                  scales: { x: { display: false }, y: { display: false } } },
     });
   }
