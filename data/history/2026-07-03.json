@@ -1,27 +1,27 @@
 {
- "generated_at": "2026-07-03T21:46:06Z",
+ "generated_at": "2026-07-03T21:46:41Z",
  "sources": {
   "openrouter": {
    "ok": true,
-   "fetched_at": "2026-07-03T21:46:06Z",
+   "fetched_at": "2026-07-03T21:46:41Z",
    "stale_since": null,
    "data_date": null
   },
   "artificialanalysis": {
-   "ok": false,
-   "fetched_at": "2026-07-03T21:42:44Z",
-   "stale_since": "2026-07-03T21:42:44Z",
+   "ok": true,
+   "fetched_at": "2026-07-03T21:46:41Z",
+   "stale_since": null,
    "data_date": null
   },
   "aider": {
    "ok": true,
-   "fetched_at": "2026-07-03T21:46:06Z",
+   "fetched_at": "2026-07-03T21:46:41Z",
    "stale_since": null,
    "data_date": "2025-10-03"
   },
   "livebench": {
    "ok": true,
-   "fetched_at": "2026-07-03T21:46:06Z",
+   "fetched_at": "2026-07-03T21:46:41Z",
    "stale_since": null,
    "data_date": "2026-01-08"
   }
@@ -160,8 +160,8 @@
      "price_in_per_1m": 1.25,
      "price_out_per_1m": 10,
      "price_blended_per_1m": 3.438,
-     "tokens_per_second": 139.395,
-     "ttft_seconds": 21.466
+     "tokens_per_second": 139.149,
+     "ttft_seconds": 21.213
     }
    }
   },
@@ -228,8 +228,8 @@
      "price_in_per_1m": 0.7,
      "price_out_per_1m": 2.8,
      "price_blended_per_1m": 1.225,
-     "tokens_per_second": 63.359,
-     "ttft_seconds": 1.152
+     "tokens_per_second": 63.611,
+     "ttft_seconds": 1.16
     }
    }
   },
@@ -249,8 +249,8 @@
      "price_in_per_1m": 0.35,
      "price_out_per_1m": 0.85,
      "price_blended_per_1m": 0.475,
-     "tokens_per_second": 113.969,
-     "ttft_seconds": 0.646
+     "tokens_per_second": 113.248,
+     "ttft_seconds": 0.649
     },
     "aider": {
      "pass_rate": 15.6,
@@ -296,8 +296,8 @@
      "price_in_per_1m": 0.585,
      "price_out_per_1m": 2.4,
      "price_blended_per_1m": 1.039,
-     "tokens_per_second": 37.126,
-     "ttft_seconds": 1.068
+     "tokens_per_second": 36.715,
+     "ttft_seconds": 1.081
     },
     "aider": {
      "pass_rate": 59.1,
@@ -348,10 +348,5 @@
    "claude-haiku-4.5"
   ]
  },
- "changes": [
-  {
-   "type": "source_stale",
-   "source": "artificialanalysis"
-  }
- ]
+ "changes": []
 }
