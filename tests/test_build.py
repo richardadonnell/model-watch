@@ -30,6 +30,8 @@ def test_run_writes_outputs(tmp_path):
     assert trends["a-model"]["aider"]["pass_rate"] == [["2026-07-03", 50.0]]
     sources = json.loads((tmp_path / "data" / "sources.json").read_text())
     assert sources == {"sources": []}
+    suggestions = json.loads((tmp_path / "data" / "suggestions.json").read_text())
+    assert isinstance(suggestions, list)
 
 
 def test_run_survives_corrupt_latest_json(tmp_path):

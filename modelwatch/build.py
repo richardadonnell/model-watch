@@ -8,6 +8,7 @@ import yaml
 from modelwatch.registry import load_registry
 from modelwatch.snapshot import RANK_METRIC, build_snapshot
 from modelwatch.diff import diff_snapshots
+from modelwatch.suggest import build_suggestions
 from modelwatch.fetchers import (
     openrouter,
     artificialanalysis,
@@ -84,6 +85,10 @@ def run(root: str, now: datetime) -> dict:
     latest_path.write_text(doc, encoding="utf-8")
     (data / "trends.json").write_text(
         json.dumps(_build_trends(history), ensure_ascii=False), encoding="utf-8"
+    )
+    (data / "suggestions.json").write_text(
+        json.dumps(build_suggestions(registry, results), ensure_ascii=False),
+        encoding="utf-8",
     )
     (rootp / "unmatched.txt").write_text("\n".join(unmatched), encoding="utf-8")
     print(
