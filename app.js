@@ -33,6 +33,8 @@ function renderChanges(changes, models) {
     else if (e.type === "rank_change")
       li.textContent = `${e.to < e.from ? "📈" : "📉"} ${name}: #${e.from} → #${e.to} on ${e.source}`;
     else if (e.type === "source_stale") li.textContent = `⚠️ ${e.source} fetch failing (stale data shown)`;
+    else if (e.type === "price_change")
+      li.textContent = `💰 ${name}: $${(+e.from).toFixed(2)} → $${(+e.to).toFixed(2)} /1M out`;
     ul.appendChild(li);
   }
 }

@@ -1,3 +1,6 @@
+PRICE_CHANGE_PCT = 0.05  # emit price_change only on a >=5% relative move
+
+
 def diff_snapshots(prev, curr):
     if prev is None:
         return []
@@ -5,6 +8,23 @@ def diff_snapshots(prev, curr):
     for mid, m in curr["models"].items():
         if mid not in prev["models"] and m.get("scores"):
             events.append({"type": "new_model", "model": mid, "name": m["name"]})
+
+    for mid, m in curr["models"].items():
+        if mid not in prev["models"]:
+            continue
+        new_p = m.get("scores", {}).get("openrouter", {}).get("price_out_per_1m")
+        old_p = (
+            prev["models"][mid]
+            .get("scores", {})
+            .get("openrouter", {})
+            .get("price_out_per_1m")
+        )
+        if not old_p or not new_p:  # skip missing/None/zero
+            continue
+        if abs(new_p - old_p) / old_p >= PRICE_CHANGE_PCT:
+            events.append(
+                {"type": "price_change", "model": mid, "from": old_p, "to": new_p}
+            )
     for source_id, order in curr.get("ranks", {}).items():
         prev_order = prev.get("ranks", {}).get(source_id, [])
         shared = set(prev_order) & set(order)

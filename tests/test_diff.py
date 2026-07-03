@@ -59,6 +59,43 @@ def test_source_stale_emitted_when_previously_ok():
     assert any(e["type"] == "source_stale" and e["source"] == "x" for e in events)
 
 
+def _snap_scored(models):
+    return {"models": models, "ranks": {}, "sources": {}}
+
+
+def test_price_change_emitted_above_threshold():
+    prev = _snap_scored(
+        {"a": {"name": "A", "scores": {"openrouter": {"price_out_per_1m": 10.0}}}}
+    )
+    curr = _snap_scored(
+        {"a": {"name": "A", "scores": {"openrouter": {"price_out_per_1m": 12.0}}}}
+    )
+    events = diff_snapshots(prev, curr)
+    pc = [e for e in events if e["type"] == "price_change"]
+    assert len(pc) == 1
+    assert pc[0]["model"] == "a" and pc[0]["from"] == 10.0 and pc[0]["to"] == 12.0
+
+
+def test_price_change_ignored_below_threshold():
+    prev = _snap_scored(
+        {"a": {"name": "A", "scores": {"openrouter": {"price_out_per_1m": 10.0}}}}
+    )
+    curr = _snap_scored(
+        {"a": {"name": "A", "scores": {"openrouter": {"price_out_per_1m": 10.2}}}}
+    )
+    events = diff_snapshots(prev, curr)
+    assert not any(e["type"] == "price_change" for e in events)
+
+
+def test_price_change_no_crash_on_missing_price():
+    prev = _snap_scored(
+        {"a": {"name": "A", "scores": {"openrouter": {"price_out_per_1m": None}}}}
+    )
+    curr = _snap_scored({"a": {"name": "A", "scores": {"openrouter": {}}}})
+    events = diff_snapshots(prev, curr)
+    assert not any(e["type"] == "price_change" for e in events)
+
+
 def test_rank_change_relative_order_swap():
     prev = _snap({"a": {"name": "A"}, "b": {"name": "B"}}, {"src": ["a", "b"]})
     curr = _snap({"a": {"name": "A"}, "b": {"name": "B"}}, {"src": ["b", "a"]})
