@@ -26,7 +26,14 @@ def parse(csv_text: str) -> list[dict]:
     out = []
     for row in csv.DictReader(io.StringIO(csv_text)):
         name = row.pop("model")
-        scores = [float(v) for v in row.values() if v not in ("", None)]
+        scores = []
+        for v in row.values():
+            if v not in ("", None):
+                try:
+                    scores.append(float(v))
+                except ValueError:
+                    # Skip non-numeric cells (e.g., "N/A")
+                    pass
         avg = round(sum(scores) / len(scores), 2) if scores else None
         out.append({"raw_name": name, "metrics": {"average": avg}})
     return out

@@ -104,6 +104,23 @@ def test_livebench_parse_averages_all_tasks():
     assert rows[0]["metrics"]["average"] == 85.0
 
 
+def test_livebench_parse_skips_non_numeric_cells():
+    csv = (
+        "model,code_completion,code_generation,python\nclaude-sonnet-5,80.0,N/A,85.0\n"
+    )
+    rows = livebench.parse(csv)
+    assert rows[0]["raw_name"] == "claude-sonnet-5"
+    # Average only over numeric cells: (80.0 + 85.0) / 2 = 82.5
+    assert rows[0]["metrics"]["average"] == 82.5
+
+
+def test_livebench_parse_all_empty_cells():
+    csv = "model,code_completion,code_generation,python\nclaude-sonnet-5,,,\n"
+    rows = livebench.parse(csv)
+    assert rows[0]["raw_name"] == "claude-sonnet-5"
+    assert rows[0]["metrics"]["average"] is None
+
+
 def test_livebench_pick_latest_release():
     files = [
         {"name": "table_2024_06_24.csv"},
@@ -128,4 +145,19 @@ LLMSTATS = {
 def test_llmstats_parse():
     rows = llmstats.parse(LLMSTATS)
     assert rows[0]["raw_name"] == "claude-sonnet-5"
+    assert rows[0]["metrics"]["rating"] == 1310.5
+
+
+def test_llmstats_parse_id_missing_fallback():
+    payload = {
+        "data": [
+            {
+                "name": "Claude Sonnet 5",
+                "rating": 1310.5,
+                "rank": 2,
+            }
+        ]
+    }
+    rows = llmstats.parse(payload)
+    assert rows[0]["raw_name"] == "Claude Sonnet 5"
     assert rows[0]["metrics"]["rating"] == 1310.5
