@@ -1,27 +1,27 @@
 {
- "generated_at": "2026-07-03T21:37:34Z",
+ "generated_at": "2026-07-03T21:38:06Z",
  "sources": {
   "openrouter": {
    "ok": true,
-   "fetched_at": "2026-07-03T21:37:34Z",
+   "fetched_at": "2026-07-03T21:38:06Z",
    "stale_since": null,
    "data_date": null
   },
   "artificialanalysis": {
-   "ok": false,
-   "fetched_at": null,
+   "ok": true,
+   "fetched_at": "2026-07-03T21:38:06Z",
    "stale_since": null,
    "data_date": null
   },
   "aider": {
    "ok": true,
-   "fetched_at": "2026-07-03T21:37:34Z",
+   "fetched_at": "2026-07-03T21:38:06Z",
    "stale_since": null,
    "data_date": "2025-10-03"
   },
   "livebench": {
    "ok": true,
-   "fetched_at": "2026-07-03T21:37:34Z",
+   "fetched_at": "2026-07-03T21:38:06Z",
    "stale_since": null,
    "data_date": "2026-01-08"
   },
@@ -42,6 +42,15 @@
      "price_out_per_1m": 50.0,
      "context_length": 1000000,
      "tokens_total": 53226965078
+    },
+    "artificialanalysis": {
+     "intelligence_index": 59.9,
+     "coding_index": 76.5,
+     "price_in_per_1m": 10,
+     "price_out_per_1m": 50,
+     "price_blended_per_1m": 20,
+     "tokens_per_second": 64.36,
+     "ttft_seconds": 45.121
     },
     "livebench": {
      "average": 75.74
@@ -73,6 +82,15 @@
      "context_length": 1000000,
      "tokens_total": 257309853065
     },
+    "artificialanalysis": {
+     "intelligence_index": 53.4,
+     "coding_index": 71.5,
+     "price_in_per_1m": 3,
+     "price_out_per_1m": 15,
+     "price_blended_per_1m": 6,
+     "tokens_per_second": 86.883,
+     "ttft_seconds": 145.53
+    },
     "livebench": {
      "average": 76.07
     }
@@ -102,6 +120,15 @@
      "price_out_per_1m": 10.0,
      "context_length": 400000,
      "tokens_total": 269612808914
+    },
+    "artificialanalysis": {
+     "intelligence_index": 34.7,
+     "coding_index": 37.8,
+     "price_in_per_1m": 1.25,
+     "price_out_per_1m": 10,
+     "price_blended_per_1m": 3.438,
+     "tokens_per_second": 118.902,
+     "ttft_seconds": 96.521
     }
    }
   },
@@ -126,6 +153,15 @@
      "price_out_per_1m": 2.5,
      "context_length": 2000000,
      "tokens_total": 35590609848
+    },
+    "artificialanalysis": {
+     "intelligence_index": 33.3,
+     "coding_index": null,
+     "price_in_per_1m": 5.5,
+     "price_out_per_1m": 27.5,
+     "price_blended_per_1m": 11,
+     "tokens_per_second": 0,
+     "ttft_seconds": 0
     }
    }
   },
@@ -138,6 +174,15 @@
      "price_out_per_1m": 2.5,
      "context_length": 163840,
      "tokens_total": 14143901525
+    },
+    "artificialanalysis": {
+     "intelligence_index": 20.1,
+     "coding_index": null,
+     "price_in_per_1m": 1.35,
+     "price_out_per_1m": 4.2,
+     "price_blended_per_1m": 2.063,
+     "tokens_per_second": 0,
+     "ttft_seconds": 0
     },
     "aider": {
      "pass_rate": 56.9,
@@ -168,6 +213,15 @@
      "context_length": 1048576,
      "tokens_total": 34432927852
     },
+    "artificialanalysis": {
+     "intelligence_index": 14.3,
+     "coding_index": 16.3,
+     "price_in_per_1m": 0.35,
+     "price_out_per_1m": 0.85,
+     "price_blended_per_1m": 0.475,
+     "tokens_per_second": 113.969,
+     "ttft_seconds": 0.646
+    },
     "aider": {
      "pass_rate": 15.6,
      "well_formed_pct": 99.1,
@@ -184,6 +238,15 @@
      "price_out_per_1m": 6.0,
      "context_length": 128000,
      "tokens_total": 5819120817
+    },
+    "artificialanalysis": {
+     "intelligence_index": 4.4,
+     "coding_index": null,
+     "price_in_per_1m": 4,
+     "price_out_per_1m": 12,
+     "price_blended_per_1m": 6,
+     "tokens_per_second": 0,
+     "ttft_seconds": 0
     }
    }
   },
@@ -196,6 +259,15 @@
      "price_out_per_1m": 2.3,
      "context_length": 131072,
      "tokens_total": 19044014898
+    },
+    "artificialanalysis": {
+     "intelligence_index": 19.4,
+     "coding_index": null,
+     "price_in_per_1m": 0.585,
+     "price_out_per_1m": 2.4,
+     "price_blended_per_1m": 1.039,
+     "tokens_per_second": 37.126,
+     "ttft_seconds": 1.068
     },
     "aider": {
      "pass_rate": 59.1,
@@ -220,7 +292,16 @@
    "deepseek-r1",
    "mistral-large"
   ],
-  "artificialanalysis": [],
+  "artificialanalysis": [
+   "claude-fable-5",
+   "claude-sonnet-5",
+   "gpt-5",
+   "grok-4",
+   "deepseek-r1",
+   "kimi-k2",
+   "llama-4-maverick",
+   "mistral-large"
+  ],
   "aider": [
    "kimi-k2",
    "deepseek-r1",
