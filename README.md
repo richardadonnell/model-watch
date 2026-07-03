@@ -4,7 +4,7 @@ A daily-updated dashboard that aggregates frontier LLM scores, rankings, and
 prices from a handful of reliable leaderboard sources into one page — so you
 can see the state of the art without checking a dozen sites.
 
-**Live:** https://richardadonnell.github.io/model-watch/
+**Live:** <https://richardadonnell.github.io/model-watch/>
 
 ## What it shows
 
