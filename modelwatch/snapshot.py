@@ -3,7 +3,6 @@ RANK_METRIC = {
     "artificialanalysis": "intelligence_index",
     "aider": "pass_rate",
     "livebench": "average",
-    "llmstats": "rating",
 }
 
 

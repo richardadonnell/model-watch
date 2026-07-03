@@ -22,7 +22,7 @@ sources:
     tier: 1
     tier_name: Daily drivers
     note: Real-time LLM performance metrics and leaderboards
-    fetched: true
+    fetched: false
 
   - id: livebench
     name: LiveBench

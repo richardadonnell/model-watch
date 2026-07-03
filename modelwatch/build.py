@@ -13,10 +13,9 @@ from modelwatch.fetchers import (
     artificialanalysis,
     aider,
     livebench,
-    llmstats,
 )
 
-FETCHERS = [openrouter, artificialanalysis, aider, livebench, llmstats]
+FETCHERS = [openrouter, artificialanalysis, aider, livebench]
 
 
 def run_fetchers() -> dict:

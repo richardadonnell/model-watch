@@ -5,7 +5,6 @@ const METRIC_COLS = [
   ["artificialanalysis", "coding_index", "AA Coding"],
   ["livebench", "average", "LiveBench"],
   ["aider", "pass_rate", "Aider %"],
-  ["llmstats", "rating", "llm-stats"],
   ["openrouter", "tokens_total", "OR usage"],
   ["artificialanalysis", "price_blended_per_1m", "$/1M blend"],
 ];

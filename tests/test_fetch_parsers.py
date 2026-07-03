@@ -111,7 +111,7 @@ def test_aa_parse():
     assert m["tokens_per_second"] == 80.5
 
 
-from modelwatch.fetchers import aider, livebench, llmstats
+from modelwatch.fetchers import aider, livebench
 
 AIDER_YAML = """
 - dirname: 2026-06-01-x
@@ -172,36 +172,3 @@ def test_livebench_pick_latest_release():
 
 def test_livebench_release_date_from_filename():
     assert livebench.release_date_from_filename("table_2026_01_08.csv") == "2026-01-08"
-
-
-LLMSTATS = {
-    "data": [
-        {
-            "id": "claude-sonnet-5",
-            "name": "Claude Sonnet 5",
-            "rating": 1310.5,
-            "rank": 2,
-        }
-    ]
-}
-
-
-def test_llmstats_parse():
-    rows = llmstats.parse(LLMSTATS)
-    assert rows[0]["raw_name"] == "claude-sonnet-5"
-    assert rows[0]["metrics"]["rating"] == 1310.5
-
-
-def test_llmstats_parse_id_missing_fallback():
-    payload = {
-        "data": [
-            {
-                "name": "Claude Sonnet 5",
-                "rating": 1310.5,
-                "rank": 2,
-            }
-        ]
-    }
-    rows = llmstats.parse(payload)
-    assert rows[0]["raw_name"] == "Claude Sonnet 5"
-    assert rows[0]["metrics"]["rating"] == 1310.5

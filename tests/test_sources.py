@@ -12,7 +12,6 @@ def test_sources_yaml_valid():
         "artificialanalysis",
         "aider",
         "livebench",
-        "llmstats",
     }
     for s in sources:
         assert s["url"].startswith("https://")

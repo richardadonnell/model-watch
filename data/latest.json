@@ -1,35 +1,29 @@
 {
- "generated_at": "2026-07-03T21:42:44Z",
+ "generated_at": "2026-07-03T21:46:06Z",
  "sources": {
   "openrouter": {
    "ok": true,
-   "fetched_at": "2026-07-03T21:42:44Z",
+   "fetched_at": "2026-07-03T21:46:06Z",
    "stale_since": null,
    "data_date": null
   },
   "artificialanalysis": {
-   "ok": true,
+   "ok": false,
    "fetched_at": "2026-07-03T21:42:44Z",
-   "stale_since": null,
+   "stale_since": "2026-07-03T21:42:44Z",
    "data_date": null
   },
   "aider": {
    "ok": true,
-   "fetched_at": "2026-07-03T21:42:44Z",
+   "fetched_at": "2026-07-03T21:46:06Z",
    "stale_since": null,
    "data_date": "2025-10-03"
   },
   "livebench": {
    "ok": true,
-   "fetched_at": "2026-07-03T21:42:44Z",
+   "fetched_at": "2026-07-03T21:46:06Z",
    "stale_since": null,
    "data_date": "2026-01-08"
-  },
-  "llmstats": {
-   "ok": false,
-   "fetched_at": null,
-   "stale_since": null,
-   "data_date": null
   }
  },
  "models": {
@@ -352,8 +346,12 @@
    "claude-sonnet-5",
    "claude-fable-5",
    "claude-haiku-4.5"
-  ],
-  "llmstats": []
+  ]
  },
- "changes": []
+ "changes": [
+  {
+   "type": "source_stale",
+   "source": "artificialanalysis"
+  }
+ ]
 }

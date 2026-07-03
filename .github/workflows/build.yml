@@ -19,7 +19,6 @@ jobs:
       - run: python -m modelwatch.build
         env:
           ARTIFICIALANALYSIS_API_KEY: ${{ secrets.ARTIFICIALANALYSIS_API_KEY }}
-          LLMSTATS_API_KEY: ${{ secrets.LLMSTATS_API_KEY }}
       - uses: actions/upload-artifact@v4
         with: { name: unmatched, path: unmatched.txt, if-no-files-found: ignore }
       - name: Commit data
