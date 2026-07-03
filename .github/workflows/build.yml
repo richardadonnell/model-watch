@@ -1,0 +1,30 @@
+name: build
+on:
+  schedule:
+    - cron: "20 6 * * *"   # daily 06:20 UTC
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency: build
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - run: pip install -r requirements.txt
+      - run: python -m pytest
+      - run: python -m modelwatch.build
+        env:
+          ARTIFICIALANALYSIS_API_KEY: ${{ secrets.ARTIFICIALANALYSIS_API_KEY }}
+          LLMSTATS_API_KEY: ${{ secrets.LLMSTATS_API_KEY }}
+      - uses: actions/upload-artifact@v4
+        with: { name: unmatched, path: unmatched.txt, if-no-files-found: ignore }
+      - name: Commit data
+        run: |
+          git config user.name "model-watch-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/
+          git diff --cached --quiet || git commit -m "chore: daily data refresh"
+          git push
