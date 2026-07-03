@@ -9,6 +9,17 @@ const METRIC_COLS = [
   ["artificialanalysis", "price_blended_per_1m", "$/1M blend"],
 ];
 
+// ISO timestamp -> human-readable in the viewer's locale/time zone.
+// Date-only strings (YYYY-MM-DD) pass through untouched: parsing them as UTC
+// midnight and localizing could shift the calendar day.
+function fmtDate(iso) {
+  if (!iso || !String(iso).includes("T")) return iso ?? "?";
+  const d = new Date(iso);
+  return isNaN(d) ? iso : d.toLocaleString(undefined, {
+    year: "numeric", month: "short", day: "numeric", hour: "numeric", minute: "2-digit",
+  });
+}
+
 function esc(s) {
   return String(s ?? "").replace(/[&<>"']/g, c => ({
     "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;",
@@ -96,7 +107,7 @@ function renderSources(sourcesDoc, latest) {
           // Never fetched successfully — no data to be "stale", just absent.
           top = `<small class="asof">no data yet</small>`;
         } else {
-          const stale = status.ok ? "" : ` <span class="stale">stale since ${esc(status.stale_since ?? "?")}</span>`;
+          const stale = status.ok ? "" : ` <span class="stale">stale since ${esc(fmtDate(status.stale_since))}</span>`;
           const top5 = (latest.ranks[s.id] || []).slice(0, 5)
             .map((mid, i) => `<li>${i + 1}. ${esc(latest.models[mid]?.name ?? mid)}</li>`).join("");
           // Some sources serve older data than the fetch time — surface the
@@ -104,7 +115,7 @@ function renderSources(sourcesDoc, latest) {
           const fetchDay = (status.fetched_at ?? "").slice(0, 10);
           const dataAsOf = status.data_date && status.data_date !== fetchDay
             ? ` <span class="asof">data as of ${esc(status.data_date)}</span>` : "";
-          top = `<ol class="top5">${top5}</ol><small>updated ${esc(status.fetched_at ?? "?")}${dataAsOf}${stale}</small>`;
+          top = `<ol class="top5">${top5}</ol><small>updated ${esc(fmtDate(status.fetched_at))}${dataAsOf}${stale}</small>`;
         }
       }
       card.innerHTML = `<a href="${esc(s.url)}"><strong>${esc(s.name)}</strong></a>
@@ -214,7 +225,7 @@ function renderCharts(latest, trends) {
   const okCount = Object.values(latest.sources).filter(s => s.ok).length;
   const total = Object.keys(latest.sources).length;
   document.getElementById("generated-at").textContent =
-    `${okCount}/${total} sources live · updated ${latest.generated_at}`;
+    `${okCount}/${total} sources live · updated ${fmtDate(latest.generated_at)}`;
   renderChanges(latest.changes ?? [], latest.models);
   renderTable(latest);
   renderSources(sourcesDoc, latest);
