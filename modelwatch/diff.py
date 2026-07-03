@@ -7,10 +7,13 @@ def diff_snapshots(prev, curr):
             events.append({"type": "new_model", "model": mid, "name": m["name"]})
     for source_id, order in curr.get("ranks", {}).items():
         prev_order = prev.get("ranks", {}).get(source_id, [])
-        prev_pos = {mid: i + 1 for i, mid in enumerate(prev_order)}
-        for i, mid in enumerate(order):
+        shared = set(prev_order) & set(order)
+        prev_shared = [mid for mid in prev_order if mid in shared]
+        curr_shared = [mid for mid in order if mid in shared]
+        prev_pos = {mid: i + 1 for i, mid in enumerate(prev_shared)}
+        for i, mid in enumerate(curr_shared):
             new_pos = i + 1
-            if mid in prev_pos and prev_pos[mid] != new_pos:
+            if prev_pos[mid] != new_pos:
                 events.append(
                     {
                         "type": "rank_change",
