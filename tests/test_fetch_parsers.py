@@ -125,7 +125,9 @@ AIDER_YAML = """
 
 
 def test_aider_parse():
-    rows = aider.parse(AIDER_YAML)
+    res = aider.parse(AIDER_YAML)
+    rows = res["entries"]
+    assert res["data_date"] == "2026-06-01"
     assert rows[0]["raw_name"] == "claude-sonnet-5"
     assert rows[0]["metrics"]["pass_rate"] == 82.2
     assert rows[0]["metrics"]["total_cost"] == 12.34
@@ -166,6 +168,10 @@ def test_livebench_pick_latest_release():
         {"name": "categories_2026_01_08.json"},
     ]
     assert livebench.pick_latest_table(files) == "table_2026_01_08.csv"
+
+
+def test_livebench_release_date_from_filename():
+    assert livebench.release_date_from_filename("table_2026_01_08.csv") == "2026-01-08"
 
 
 LLMSTATS = {

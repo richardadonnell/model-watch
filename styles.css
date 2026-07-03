@@ -19,6 +19,7 @@ tr:nth-child(even) { background: var(--card); }
 .card p { color: var(--muted); font-size: .85rem; margin: .3rem 0; }
 .top5 { margin: .3rem 0; padding-left: 1.2rem; font-size: .85rem; }
 .stale { color: #e0a030; }
+.asof { color: var(--muted); }
 .chart-box { max-width: 700px; }
 .spark { display: flex; align-items: center; gap: .6rem; max-width: 480px; }
 .spark span { width: 160px; font-size: .85rem; }

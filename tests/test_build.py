@@ -11,7 +11,10 @@ def test_run_writes_outputs(tmp_path):
     )
     (tmp_path / "sources.yaml").write_text("sources: []\n")
     fake_results = {
-        "aider": [{"raw_name": "a-raw", "metrics": {"pass_rate": 50.0}}],
+        "aider": {
+            "entries": [{"raw_name": "a-raw", "metrics": {"pass_rate": 50.0}}],
+            "data_date": "2026-06-01",
+        },
         "openrouter": None,
         "artificialanalysis": None,
         "livebench": None,
@@ -36,7 +39,10 @@ def test_run_survives_corrupt_latest_json(tmp_path):
     )
     (tmp_path / "sources.yaml").write_text("sources: []\n")
     fake_results = {
-        "aider": [{"raw_name": "a-raw", "metrics": {"pass_rate": 50.0}}],
+        "aider": {
+            "entries": [{"raw_name": "a-raw", "metrics": {"pass_rate": 50.0}}],
+            "data_date": "2026-06-01",
+        },
         "openrouter": None,
         "artificialanalysis": None,
         "livebench": None,
@@ -57,7 +63,10 @@ def test_build_trends_skips_malformed_history_file(tmp_path):
     )
     (tmp_path / "sources.yaml").write_text("sources: []\n")
     fake_results = {
-        "aider": [{"raw_name": "a-raw", "metrics": {"pass_rate": 50.0}}],
+        "aider": {
+            "entries": [{"raw_name": "a-raw", "metrics": {"pass_rate": 50.0}}],
+            "data_date": "2026-06-01",
+        },
         "openrouter": None,
         "artificialanalysis": None,
         "livebench": None,

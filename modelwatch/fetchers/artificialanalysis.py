@@ -29,8 +29,8 @@ def parse(payload: dict) -> list[dict]:
     return out
 
 
-def fetch() -> list[dict]:
+def fetch() -> dict:
     key = os.environ["ARTIFICIALANALYSIS_API_KEY"]
     r = requests.get(URL, headers={"x-api-key": key}, timeout=30)
     r.raise_for_status()
-    return parse(r.json())
+    return {"entries": parse(r.json()), "data_date": None}

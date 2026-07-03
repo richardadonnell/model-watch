@@ -53,9 +53,9 @@ def parse(models_payload: dict, rankings_payload: dict) -> list[dict]:
     return out
 
 
-def fetch() -> list[dict]:
+def fetch() -> dict:
     models = requests.get(MODELS_URL, timeout=30)
     models.raise_for_status()
     rankings = requests.get(RANKINGS_URL, timeout=30)
     rankings.raise_for_status()
-    return parse(models.json(), rankings.json())
+    return {"entries": parse(models.json(), rankings.json()), "data_date": None}

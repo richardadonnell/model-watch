@@ -11,11 +11,14 @@ REG = Registry(
 
 def test_build_snapshot_scores_ranks_unmatched():
     results = {
-        "aider": [
-            {"raw_name": "a-raw", "metrics": {"pass_rate": 50.0}},
-            {"raw_name": "b-raw", "metrics": {"pass_rate": 80.0}},
-            {"raw_name": "mystery", "metrics": {"pass_rate": 99.0}},
-        ]
+        "aider": {
+            "entries": [
+                {"raw_name": "a-raw", "metrics": {"pass_rate": 50.0}},
+                {"raw_name": "b-raw", "metrics": {"pass_rate": 80.0}},
+                {"raw_name": "mystery", "metrics": {"pass_rate": 99.0}},
+            ],
+            "data_date": "2026-06-01",
+        }
     }
     snap, unmatched = build_snapshot(
         REG, results, prev=None, now_iso="2026-07-03T00:00:00Z"
@@ -24,6 +27,7 @@ def test_build_snapshot_scores_ranks_unmatched():
     assert snap["ranks"]["aider"] == ["b-model", "a-model"]
     assert unmatched == ["aider: mystery"]
     assert snap["sources"]["aider"]["ok"] is True
+    assert snap["sources"]["aider"]["data_date"] == "2026-06-01"
 
 
 def test_failed_source_keeps_prev_data_and_marks_stale():

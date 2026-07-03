@@ -22,6 +22,12 @@ def pick_latest_table(files: list[dict]) -> str:
     return tables[-1]  # YYYY_MM_DD sorts lexicographically
 
 
+def release_date_from_filename(name: str) -> str:
+    # "table_2026_01_08.csv" -> "2026-01-08"
+    stem = name[len("table_") :].rsplit(".", 1)[0]
+    return stem.replace("_", "-")
+
+
 def parse(csv_text: str) -> list[dict]:
     out = []
     for row in csv.DictReader(io.StringIO(csv_text)):
@@ -39,10 +45,13 @@ def parse(csv_text: str) -> list[dict]:
     return out
 
 
-def fetch() -> list[dict]:
+def fetch() -> dict:
     listing = requests.get(LISTING_URL, timeout=30)
     listing.raise_for_status()
     table = pick_latest_table(listing.json())
     r = requests.get(RAW_BASE + table, timeout=30)
     r.raise_for_status()
-    return parse(r.text)
+    return {
+        "entries": parse(r.text),
+        "data_date": release_date_from_filename(table),
+    }

@@ -74,7 +74,12 @@ function renderSources(sourcesDoc, latest) {
         const stale = status.ok ? "" : ` <span class="stale">stale since ${esc(status.stale_since ?? "?")}</span>`;
         const top5 = (latest.ranks[s.id] || []).slice(0, 5)
           .map((mid, i) => `<li>${i + 1}. ${esc(latest.models[mid]?.name ?? mid)}</li>`).join("");
-        top = `<ol class="top5">${top5}</ol><small>updated ${esc(status.fetched_at ?? "?")}${stale}</small>`;
+        // Some sources serve older data than the fetch time — surface the
+        // source's own data date when it differs from the fetch day.
+        const fetchDay = (status.fetched_at ?? "").slice(0, 10);
+        const dataAsOf = status.data_date && status.data_date !== fetchDay
+          ? ` <span class="asof">data as of ${esc(status.data_date)}</span>` : "";
+        top = `<ol class="top5">${top5}</ol><small>updated ${esc(status.fetched_at ?? "?")}${dataAsOf}${stale}</small>`;
       }
       card.innerHTML = `<a href="${esc(s.url)}"><strong>${esc(s.name)}</strong></a>
         <p>${esc(s.note ?? "")}</p>${top}`;
