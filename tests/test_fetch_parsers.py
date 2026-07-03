@@ -71,3 +71,61 @@ def test_aa_parse():
     assert m["coding_index"] == 65.2
     assert m["price_blended_per_1m"] == 4.0
     assert m["tokens_per_second"] == 80.5
+
+
+from modelwatch.fetchers import aider, livebench, llmstats
+
+AIDER_YAML = """
+- dirname: 2026-06-01-x
+  model: claude-sonnet-5
+  edit_format: diff
+  pass_rate_2: 82.2
+  percent_cases_well_formed: 99.1
+  total_cost: 12.34
+  date: 2026-06-01
+"""
+
+
+def test_aider_parse():
+    rows = aider.parse(AIDER_YAML)
+    assert rows[0]["raw_name"] == "claude-sonnet-5"
+    assert rows[0]["metrics"]["pass_rate"] == 82.2
+    assert rows[0]["metrics"]["total_cost"] == 12.34
+
+
+LB_CSV = (
+    "model,code_completion,code_generation,python\nclaude-sonnet-5,80.0,90.0,85.0\n"
+)
+
+
+def test_livebench_parse_averages_all_tasks():
+    rows = livebench.parse(LB_CSV)
+    assert rows[0]["raw_name"] == "claude-sonnet-5"
+    assert rows[0]["metrics"]["average"] == 85.0
+
+
+def test_livebench_pick_latest_release():
+    files = [
+        {"name": "table_2024_06_24.csv"},
+        {"name": "table_2026_01_08.csv"},
+        {"name": "categories_2026_01_08.json"},
+    ]
+    assert livebench.pick_latest_table(files) == "table_2026_01_08.csv"
+
+
+LLMSTATS = {
+    "data": [
+        {
+            "id": "claude-sonnet-5",
+            "name": "Claude Sonnet 5",
+            "rating": 1310.5,
+            "rank": 2,
+        }
+    ]
+}
+
+
+def test_llmstats_parse():
+    rows = llmstats.parse(LLMSTATS)
+    assert rows[0]["raw_name"] == "claude-sonnet-5"
+    assert rows[0]["metrics"]["rating"] == 1310.5
