@@ -3,6 +3,8 @@ import traceback
 from datetime import datetime, timezone
 from pathlib import Path
 
+import yaml
+
 from modelwatch.registry import load_registry
 from modelwatch.snapshot import RANK_METRIC, build_snapshot
 from modelwatch.diff import diff_snapshots
@@ -67,6 +69,10 @@ def run(root: str, now: datetime) -> dict:
             prev = None
 
     registry = load_registry(str(rootp / "models.yaml"))
+    sources_doc = yaml.safe_load((rootp / "sources.yaml").read_text(encoding="utf-8"))
+    (data / "sources.json").write_text(
+        json.dumps(sources_doc, ensure_ascii=False), encoding="utf-8"
+    )
     results = run_fetchers()
     now_iso = now.strftime("%Y-%m-%dT%H:%M:%SZ")
     snap, unmatched = build_snapshot(registry, results, prev, now_iso)
