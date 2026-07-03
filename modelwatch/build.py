@@ -32,7 +32,11 @@ def _build_trends(history_dir: Path) -> dict:
     trends: dict = {}
     for f in sorted(history_dir.glob("*.json")):
         day = f.stem
-        snap = json.loads(f.read_text(encoding="utf-8"))
+        try:
+            snap = json.loads(f.read_text(encoding="utf-8"))
+        except (json.JSONDecodeError, OSError):
+            print(f"[warn] skipping unreadable history file: {f}")
+            continue
         for mid, m in snap.get("models", {}).items():
             for source_id, metrics in m.get("scores", {}).items():
                 metric = RANK_METRIC.get(source_id)
@@ -54,7 +58,13 @@ def run(root: str, now: datetime) -> dict:
     prev = None
     latest_path = data / "latest.json"
     if latest_path.exists():
-        prev = json.loads(latest_path.read_text(encoding="utf-8"))
+        try:
+            prev = json.loads(latest_path.read_text(encoding="utf-8"))
+        except (json.JSONDecodeError, OSError):
+            print(
+                f"[warn] unreadable latest.json, treating as first run: {latest_path}"
+            )
+            prev = None
 
     registry = load_registry(str(rootp / "models.yaml"))
     results = run_fetchers()
@@ -63,8 +73,10 @@ def run(root: str, now: datetime) -> dict:
     snap["changes"] = diff_snapshots(prev, snap)
 
     doc = json.dumps(snap, indent=1, ensure_ascii=False)
-    latest_path.write_text(doc, encoding="utf-8")
+    # History is the durable record; latest.json is derivable from it, so write
+    # history first — if the process dies mid-write, we don't lose the day's record.
     (history / f"{now.strftime('%Y-%m-%d')}.json").write_text(doc, encoding="utf-8")
+    latest_path.write_text(doc, encoding="utf-8")
     (data / "trends.json").write_text(
         json.dumps(_build_trends(history), ensure_ascii=False), encoding="utf-8"
     )
