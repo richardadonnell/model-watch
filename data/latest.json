@@ -1,39 +1,39 @@
 {
- "generated_at": "2026-07-04T00:11:55Z",
+ "generated_at": "2026-07-04T00:13:09Z",
  "sources": {
   "openrouter": {
    "ok": true,
-   "fetched_at": "2026-07-04T00:11:55Z",
+   "fetched_at": "2026-07-04T00:13:09Z",
    "stale_since": null,
    "data_date": null
   },
   "artificialanalysis": {
-   "ok": false,
-   "fetched_at": "2026-07-03T23:35:37Z",
-   "stale_since": "2026-07-03T23:35:37Z",
+   "ok": true,
+   "fetched_at": "2026-07-04T00:13:09Z",
+   "stale_since": null,
    "data_date": null
   },
   "livebench": {
    "ok": true,
-   "fetched_at": "2026-07-04T00:11:55Z",
+   "fetched_at": "2026-07-04T00:13:09Z",
    "stale_since": null,
    "data_date": "2026-01-08"
   },
   "swebench": {
    "ok": true,
-   "fetched_at": "2026-07-04T00:11:55Z",
+   "fetched_at": "2026-07-04T00:13:09Z",
    "stale_since": null,
    "data_date": "2026-02-26"
   },
   "epoch": {
    "ok": true,
-   "fetched_at": "2026-07-04T00:11:55Z",
+   "fetched_at": "2026-07-04T00:13:09Z",
    "stale_since": null,
    "data_date": "2026-06-25"
   },
   "modelsdev": {
    "ok": true,
-   "fetched_at": "2026-07-04T00:11:55Z",
+   "fetched_at": "2026-07-04T00:13:09Z",
    "stale_since": null,
    "data_date": null
   }
@@ -675,10 +675,5 @@
    "claude-haiku-4.5"
   ]
  },
- "changes": [
-  {
-   "type": "source_stale",
-   "source": "artificialanalysis"
-  }
- ]
+ "changes": []
 }
