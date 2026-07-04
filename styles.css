@@ -188,6 +188,9 @@ tbody tr:hover td:first-child { background: var(--surface); }
 #sparklines { display: grid; gap: var(--sp-2); }
 .spark { display: flex; align-items: center; gap: var(--sp-3); max-width: 520px; }
 .spark span { width: 160px; font-size: 0.82rem; color: var(--fg-dim); }
+/* Chart.js responsive mode sizes to the parent, so the wrapper must own a
+   fixed height or the canvas grows without bound in a flex row. */
+.spark-canvas { position: relative; flex: 1; height: 40px; min-width: 0; }
 
 /* ---- leaderboard cards ---- */
 #source-cards h3 {

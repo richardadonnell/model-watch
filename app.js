@@ -216,14 +216,15 @@ function renderCharts(latest, trends) {
     const series = srcs.artificialanalysis?.intelligence_index;
     if (!series || series.length < 2) continue;
     const wrap = document.createElement("div"); wrap.className = "spark";
-    wrap.innerHTML = `<span>${esc(latest.models[mid]?.name ?? mid)}</span><canvas height="40"></canvas>`;
+    wrap.innerHTML = `<span>${esc(latest.models[mid]?.name ?? mid)}</span><div class="spark-canvas"><canvas></canvas></div>`;
     sp.appendChild(wrap);
     new Chart(wrap.querySelector("canvas"), {
       type: "line",
       data: { labels: series.map(p => p[0]),
               datasets: [{ data: series.map(p => p[1]), borderColor: C.ink,
                            borderWidth: 1.5, pointRadius: 0, tension: 0.25 }] },
-      options: { plugins: { legend: { display: false }, tooltip: { enabled: false } },
+      options: { responsive: true, maintainAspectRatio: false,
+                 plugins: { legend: { display: false }, tooltip: { enabled: false } },
                  scales: { x: { display: false }, y: { display: false } } },
     });
   }
