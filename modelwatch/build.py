@@ -12,11 +12,10 @@ from modelwatch.suggest import build_suggestions
 from modelwatch.fetchers import (
     openrouter,
     artificialanalysis,
-    aider,
     livebench,
 )
 
-FETCHERS = [openrouter, artificialanalysis, aider, livebench]
+FETCHERS = [openrouter, artificialanalysis, livebench]
 
 
 def run_fetchers() -> dict:

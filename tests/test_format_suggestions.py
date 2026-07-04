@@ -10,9 +10,9 @@ def test_non_empty_groups_by_source_and_includes_raw_name():
             "value": 85.0,
         },
         {
-            "source": "aider",
+            "source": "livebench",
             "raw_name": "Coder X",
-            "metric": "pass_rate",
+            "metric": "average",
             "value": 72.0,
         },
     ]
@@ -20,7 +20,7 @@ def test_non_empty_groups_by_source_and_includes_raw_name():
     assert "Shiny New Model" in body
     assert "Coder X" in body
     assert "artificialanalysis" in body
-    assert "aider" in body
+    assert "livebench" in body
     assert "models.yaml" in body
 
 

@@ -26,7 +26,6 @@ link-only card.
 | Source | Data | Auth |
 |---|---|---|
 | [OpenRouter](https://openrouter.ai/) | Model list, pricing, real usage rankings | none |
-| [Aider](https://aider.chat/docs/leaderboards/) | Polyglot code-editing pass rate | none |
 | [LiveBench](https://livebench.ai/) | Contamination-resistant benchmark scores | none |
 | [Artificial Analysis](https://artificialanalysis.ai/) | Intelligence/coding index, price, speed | API key |
 
@@ -48,11 +47,10 @@ actively **fetches** are marked ✅; the rest are link-only cards on the site.
 **Tier 2 — Coding & agentic**
 
 1. <https://www.swebench.com/index.html> — the canonical SWE benchmark
-2. ✅ <https://aider.chat/docs/leaderboards/> — practical code-editing performance
-3. <https://livecodebench.github.io/leaderboard.html> — contamination-resistant coding
-4. <https://www.tbench.ai> — terminal/CLI agent tasks
-5. <https://scale.com/leaderboard/swe_bench_pro_public> — harder SWE-bench variant
-6. <https://deepswe.datacurve.ai/> — niche SWE benchmark
+2. <https://livecodebench.github.io/leaderboard.html> — contamination-resistant coding
+3. <https://www.tbench.ai> — terminal/CLI agent tasks
+4. <https://scale.com/leaderboard/swe_bench_pro_public> — harder SWE-bench variant
+5. <https://deepswe.datacurve.ai/> — niche SWE benchmark
 
 **Tier 3 — Human preference / arena**
 
@@ -76,8 +74,8 @@ actively **fetches** are marked ✅; the rest are link-only cards on the site.
 2. <https://epochai.org> — benchmark trend analysis
 3. <https://www.vals.ai> — domain-specific evals (legal/finance)
 
-If you only check three: Artificial Analysis, OpenRouter rankings, and Aider's
-leaderboard cover 90% of what matters for practical model selection.
+If you only check three: Artificial Analysis, OpenRouter rankings, and
+LiveBench cover 90% of what matters for practical model selection.
 
 ## How it works
 

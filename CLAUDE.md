@@ -15,7 +15,7 @@ A static dashboard aggregating frontier-LLM scores/prices from a few leaderboard
 
 ## Architecture rules
 
-- **Fetcher contract:** each `modelwatch/fetchers/<source>.py` exposes `SOURCE_ID`, a pure `parse(...)`, and `fetch() -> {"entries": [{"raw_name", "metrics"}], "data_date": str|None}`. Keep `parse` pure (no network) so it's unit-tested on sample payloads; `fetch` is the thin I/O wrapper. `data_date` is the source's own data date (Aider max entry date, LiveBench release-filename date); live sources use `None`.
+- **Fetcher contract:** each `modelwatch/fetchers/<source>.py` exposes `SOURCE_ID`, a pure `parse(...)`, and `fetch() -> {"entries": [{"raw_name", "metrics"}], "data_date": str|None}`. Keep `parse` pure (no network) so it's unit-tested on sample payloads; `fetch` is the thin I/O wrapper. `data_date` is the source's own data date (e.g. LiveBench release-filename date); live sources use `None`.
 - **Fail-soft is non-negotiable:** a fetch failure must never fail the build. `run_fetchers` catches per-source and returns `None`; `build_snapshot` carries the last-good scores forward and stamps `stale_since`. Preserve this when editing the pipeline.
 - **Prices are normalized to USD per 1M tokens** across sources (OpenRouter returns per-token — multiply by 1e6; Artificial Analysis returns per-1M).
 - **Model list is a curated shortlist** in `models.yaml` (id + per-source `aliases`). Sources report hundreds of names; only aliased ones are tracked. Unmatched names are logged to `unmatched.txt` (uploaded as an Action artifact) — that's the signal for what to add. Do NOT switch to auto-tracking every model.

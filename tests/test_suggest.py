@@ -43,11 +43,11 @@ def test_none_source_is_skipped():
 def test_candidate_missing_metric_is_dropped():
     reg = FakeRegistry({})
     results = {
-        "aider": {
+        "livebench": {
             "entries": [
-                {"raw_name": "has-metric", "metrics": {"pass_rate": 70.0}},
+                {"raw_name": "has-metric", "metrics": {"average": 70.0}},
                 {"raw_name": "no-metric-key", "metrics": {}},
-                {"raw_name": "none-metric", "metrics": {"pass_rate": None}},
+                {"raw_name": "none-metric", "metrics": {"average": None}},
             ],
         }
     }

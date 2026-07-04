@@ -30,7 +30,7 @@ models:
 """)
     reg = load_registry(str(p))
     assert reg.canonical_id("livebench", "GPT-5") == "gpt-5"
-    assert reg.canonical_id("aider", "gpt-5") == "gpt-5"
+    assert reg.canonical_id("openrouter", "gpt-5") == "gpt-5"
 
 
 def test_colliding_alias_raises_value_error(tmp_path):

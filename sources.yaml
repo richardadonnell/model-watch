@@ -41,14 +41,6 @@ sources:
     note: Software engineering task completion benchmark
     fetched: false
 
-  - id: aider
-    name: Aider
-    url: https://aider.chat/docs/leaderboards/
-    tier: 2
-    tier_name: Coding & agentic
-    note: Code generation and editing leaderboard
-    fetched: true
-
   - id: livecodebench
     name: LiveCodeBench
     url: https://livecodebench.github.io/leaderboard.html

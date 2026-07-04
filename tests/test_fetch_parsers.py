@@ -111,27 +111,7 @@ def test_aa_parse():
     assert m["tokens_per_second"] == 80.5
 
 
-from modelwatch.fetchers import aider, livebench
-
-AIDER_YAML = """
-- dirname: 2026-06-01-x
-  model: claude-sonnet-5
-  edit_format: diff
-  pass_rate_2: 82.2
-  percent_cases_well_formed: 99.1
-  total_cost: 12.34
-  date: 2026-06-01
-"""
-
-
-def test_aider_parse():
-    res = aider.parse(AIDER_YAML)
-    rows = res["entries"]
-    assert res["data_date"] == "2026-06-01"
-    assert rows[0]["raw_name"] == "claude-sonnet-5"
-    assert rows[0]["metrics"]["pass_rate"] == 82.2
-    assert rows[0]["metrics"]["total_cost"] == 12.34
-
+from modelwatch.fetchers import livebench
 
 LB_CSV = (
     "model,code_completion,code_generation,python\nclaude-sonnet-5,80.0,90.0,85.0\n"

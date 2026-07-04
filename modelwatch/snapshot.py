@@ -1,7 +1,6 @@
 RANK_METRIC = {
     "openrouter": "tokens_total",
     "artificialanalysis": "intelligence_index",
-    "aider": "pass_rate",
     "livebench": "average",
 }
 

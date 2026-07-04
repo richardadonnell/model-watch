@@ -13,12 +13,6 @@
    "stale_since": null,
    "data_date": null
   },
-  "aider": {
-   "ok": true,
-   "fetched_at": "2026-07-03T23:35:37Z",
-   "stale_since": null,
-   "data_date": "2025-10-03"
-  },
   "livebench": {
    "ok": true,
    "fetched_at": "2026-07-03T23:35:37Z",
@@ -471,7 +465,6 @@
    "claude-haiku-4.5",
    "mistral-large-2512"
   ],
-  "aider": [],
   "livebench": [
    "gpt-5.5",
    "gpt-5.4",

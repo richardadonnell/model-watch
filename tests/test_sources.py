@@ -5,12 +5,11 @@ def test_sources_yaml_valid():
     with open("sources.yaml", encoding="utf-8") as f:
         doc = yaml.safe_load(f)
     sources = doc["sources"]
-    assert len(sources) >= 21
+    assert len(sources) >= 20
     fetched = {s["id"] for s in sources if s.get("fetched")}
     assert fetched == {
         "openrouter",
         "artificialanalysis",
-        "aider",
         "livebench",
     }
     for s in sources:
