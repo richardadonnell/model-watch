@@ -28,6 +28,9 @@ link-only card.
 | [OpenRouter](https://openrouter.ai/) | Model list, pricing, real usage rankings | none |
 | [LiveBench](https://livebench.ai/) | Contamination-resistant benchmark scores | none |
 | [Artificial Analysis](https://artificialanalysis.ai/) | Intelligence/coding index, price, speed | API key |
+| [SWE-bench](https://www.swebench.com/) | Agentic coding resolved % + cost (bash-only split) | none |
+| [Epoch AI](https://epoch.ai/benchmarks) | Independent re-runs: GPQA Diamond, AIME, SWE-bench Verified (CC BY) | none |
+| [models.dev](https://models.dev/) | Open-source model catalog: pricing, context limits | none |
 
 Prices are normalized to USD per 1M tokens across sources. Every source is
 failure-isolated: if one feed is down, its last-good data is kept and stamped
@@ -46,7 +49,7 @@ actively **fetches** are marked ✅; the rest are link-only cards on the site.
 
 **Tier 2 — Coding & agentic**
 
-1. <https://www.swebench.com/index.html> — the canonical SWE benchmark
+1. ✅ <https://www.swebench.com/index.html> — the canonical SWE benchmark
 2. <https://livecodebench.github.io/leaderboard.html> — contamination-resistant coding
 3. <https://www.tbench.ai> — terminal/CLI agent tasks
 4. <https://scale.com/leaderboard/swe_bench_pro_public> — harder SWE-bench variant
@@ -70,8 +73,8 @@ actively **fetches** are marked ✅; the rest are link-only cards on the site.
 
 **Tier 6 — Reference/utility, not leaderboards**
 
-1. <https://models.dev/> — model spec/pricing catalog
-2. <https://epochai.org> — benchmark trend analysis
+1. ✅ <https://models.dev/> — model spec/pricing catalog
+2. ✅ <https://epoch.ai/benchmarks> — independent benchmark re-runs (CC BY)
 3. <https://www.vals.ai> — domain-specific evals (legal/finance)
 
 If you only check three: Artificial Analysis, OpenRouter rankings, and

@@ -38,8 +38,8 @@ sources:
     url: https://swebench.com/
     tier: 2
     tier_name: Coding & agentic
-    note: Software engineering task completion benchmark
-    fetched: false
+    note: Software engineering task completion benchmark (bash-only split)
+    fetched: true
 
   - id: livecodebench
     name: LiveCodeBench
@@ -133,21 +133,21 @@ sources:
     fetched: false
 
   # Tier 6: Reference / utility
-  - id: models-dev
+  - id: modelsdev
     name: Models.dev
     url: https://models.dev/
     tier: 6
     tier_name: Reference / utility
-    note: Model directory and metadata reference
-    fetched: false
+    note: Open-source model catalog — pricing/context cross-check
+    fetched: true
 
-  - id: epochai
+  - id: epoch
     name: Epoch AI
-    url: https://epochai.org/
+    url: https://epoch.ai/benchmarks
     tier: 6
     tier_name: Reference / utility
-    note: AI progress and timeline tracking resource
-    fetched: false
+    note: Independent benchmark re-runs (GPQA, AIME, SWE-bench Verified)
+    fetched: true
 
   - id: vals-ai
     name: VALs AI

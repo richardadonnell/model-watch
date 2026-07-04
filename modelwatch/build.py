@@ -13,9 +13,12 @@ from modelwatch.fetchers import (
     openrouter,
     artificialanalysis,
     livebench,
+    swebench,
+    epoch,
+    modelsdev,
 )
 
-FETCHERS = [openrouter, artificialanalysis, livebench]
+FETCHERS = [openrouter, artificialanalysis, livebench, swebench, epoch, modelsdev]
 
 
 def run_fetchers() -> dict:

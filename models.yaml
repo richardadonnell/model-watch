@@ -1,119 +1,228 @@
 # Canonical frontier shortlist. aliases: per-source raw names as they appear in that source's feed.
 models:
-  - id: claude-fable-5
-    name: Claude Fable 5
-    vendor: Anthropic
-    aliases:
-      openrouter: ["anthropic/claude-fable-5"]
-      livebench: ["claude-fable-5-xhigh-effort"]
-  - id: claude-opus-4.8
-    name: Claude Opus 4.8
-    vendor: Anthropic
-    aliases:
-      openrouter: ["anthropic/claude-opus-4.8"]
-      livebench: ["claude-opus-4-8-xhigh-effort"]
-      artificialanalysis: ["claude-opus-4-8"]
-  - id: claude-sonnet-5
-    name: Claude Sonnet 5
-    vendor: Anthropic
-    aliases:
-      openrouter: ["anthropic/claude-sonnet-5"]
-      livebench: ["claude-sonnet-5-xhigh-effort"]
-      artificialanalysis: ["claude-sonnet-5-xhigh"]
-  - id: claude-haiku-4.5
-    name: Claude Haiku 4.5
-    vendor: Anthropic
-    aliases:
-      openrouter: ["anthropic/claude-haiku-4.5"]
-      livebench: ["claude-haiku-4-5-20251001"]
-      artificialanalysis: ["claude-4-5-haiku"]
-  - id: gpt-5.5
-    name: GPT-5.5
-    vendor: OpenAI
-    aliases:
-      openrouter: ["openai/gpt-5.5"]
-      livebench: ["gpt-5.5-xhigh"]
-      artificialanalysis: ["gpt-5-5"]
-  - id: gpt-5.4
-    name: GPT-5.4
-    vendor: OpenAI
-    aliases:
-      openrouter: ["openai/gpt-5.4"]
-      livebench: ["gpt-5.4-xhigh"]
-      artificialanalysis: ["gpt-5-4"]
-  - id: gpt-5.3-codex
-    name: GPT-5.3 Codex
-    vendor: OpenAI
-    aliases:
-      openrouter: ["openai/gpt-5.3-codex"]
-      livebench: ["gpt-5.3-codex-xhigh"]
-      artificialanalysis: ["gpt-5-3-codex"]
-  - id: gemini-3.5-flash
-    name: Gemini 3.5 Flash
-    vendor: Google
-    aliases:
-      openrouter: ["google/gemini-3.5-flash"]
-      livebench: ["gemini-3.5-flash-high"]
-      artificialanalysis: ["gemini-3-5-flash"]
-  - id: gemini-3.1-pro
-    name: Gemini 3.1 Pro
-    vendor: Google
-    aliases:
-      openrouter: ["google/gemini-3.1-pro-preview"]
-      livebench: ["gemini-3.1-pro-preview-high"]
-      artificialanalysis: ["gemini-3-1-pro-preview"]
-  - id: grok-4.3
-    name: Grok 4.3
-    vendor: xAI
-    aliases:
-      openrouter: ["x-ai/grok-4.3"]
-      livebench: ["grok-4.3"]
-      artificialanalysis: ["grok-4-3"]
-  - id: deepseek-v4-pro
-    name: DeepSeek V4 Pro
-    vendor: DeepSeek
-    aliases:
-      openrouter: ["deepseek/deepseek-v4-pro"]
-      livebench: ["deepseek-v4-pro"]
-      artificialanalysis: ["deepseek-v4-pro"]
-  - id: deepseek-v4-flash
-    name: DeepSeek V4 Flash
-    vendor: DeepSeek
-    aliases:
-      openrouter: ["deepseek/deepseek-v4-flash"]
-      livebench: ["deepseek-v4-flash"]
-      artificialanalysis: ["deepseek-v4-flash"]
-  - id: qwen3.7-max
-    name: Qwen3.7 Max
-    vendor: Alibaba
-    aliases:
-      openrouter: ["qwen/qwen3.7-max"]
-      livebench: ["qwen3.7-max"]
-      artificialanalysis: ["qwen3-7-max"]
-  - id: kimi-k2.7-code
-    name: Kimi K2.7 Code
-    vendor: Moonshot
-    aliases:
-      openrouter: ["moonshotai/kimi-k2.7-code"]
-      livebench: ["kimi-k2.7-code"]
-      artificialanalysis: ["kimi-k2-7-code"]
-  - id: glm-5.2
-    name: GLM 5.2
-    vendor: Z.ai
-    aliases:
-      openrouter: ["z-ai/glm-5.2"]
-      livebench: ["glm-5.2"]
-      artificialanalysis: ["glm-5-2"]
-  - id: minimax-m3
-    name: MiniMax M3
-    vendor: MiniMax
-    aliases:
-      openrouter: ["minimax/minimax-m3"]
-      livebench: ["minimax-m3"]
-      artificialanalysis: ["minimax-m3"]
-  - id: mistral-large-2512
-    name: Mistral Large 3
-    vendor: Mistral
-    aliases:
-      openrouter: ["mistralai/mistral-large-2512"]
-      artificialanalysis: ["mistral-large-3"]
+- id: claude-fable-5
+  name: Claude Fable 5
+  vendor: Anthropic
+  aliases:
+    openrouter:
+    - anthropic/claude-fable-5
+    livebench:
+    - claude-fable-5-xhigh-effort
+    epoch:
+    - claude-fable-5_max
+    modelsdev:
+    - anthropic/claude-fable-5
+- id: claude-opus-4.8
+  name: Claude Opus 4.8
+  vendor: Anthropic
+  aliases:
+    openrouter:
+    - anthropic/claude-opus-4.8
+    livebench:
+    - claude-opus-4-8-xhigh-effort
+    artificialanalysis:
+    - claude-opus-4-8
+    epoch:
+    - claude-opus-4-8_max
+    modelsdev:
+    - anthropic/claude-opus-4-8
+- id: claude-sonnet-5
+  name: Claude Sonnet 5
+  vendor: Anthropic
+  aliases:
+    openrouter:
+    - anthropic/claude-sonnet-5
+    livebench:
+    - claude-sonnet-5-xhigh-effort
+    artificialanalysis:
+    - claude-sonnet-5-xhigh
+    modelsdev:
+    - anthropic/claude-sonnet-5
+- id: claude-haiku-4.5
+  name: Claude Haiku 4.5
+  vendor: Anthropic
+  aliases:
+    openrouter:
+    - anthropic/claude-haiku-4.5
+    livebench:
+    - claude-haiku-4-5-20251001
+    artificialanalysis:
+    - claude-4-5-haiku
+    swebench:
+    - Claude 4.5 Haiku (high reasoning)
+    epoch:
+    - claude-haiku-4-5-20251001
+    modelsdev:
+    - anthropic/claude-haiku-4-5
+- id: gpt-5.5
+  name: GPT-5.5
+  vendor: OpenAI
+  aliases:
+    openrouter:
+    - openai/gpt-5.5
+    livebench:
+    - gpt-5.5-xhigh
+    artificialanalysis:
+    - gpt-5-5
+    epoch:
+    - gpt-5.5-pre-release_xhigh
+    modelsdev:
+    - openai/gpt-5.5
+- id: gpt-5.4
+  name: GPT-5.4
+  vendor: OpenAI
+  aliases:
+    openrouter:
+    - openai/gpt-5.4
+    livebench:
+    - gpt-5.4-xhigh
+    artificialanalysis:
+    - gpt-5-4
+    epoch:
+    - gpt-5.4-2026-03-05_xhigh
+    modelsdev:
+    - openai/gpt-5.4
+- id: gpt-5.3-codex
+  name: GPT-5.3 Codex
+  vendor: OpenAI
+  aliases:
+    openrouter:
+    - openai/gpt-5.3-codex
+    livebench:
+    - gpt-5.3-codex-xhigh
+    artificialanalysis:
+    - gpt-5-3-codex
+    epoch:
+    - gpt-5.3-codex_high
+    modelsdev:
+    - openai/gpt-5.3-codex
+- id: gemini-3.5-flash
+  name: Gemini 3.5 Flash
+  vendor: Google
+  aliases:
+    openrouter:
+    - google/gemini-3.5-flash
+    livebench:
+    - gemini-3.5-flash-high
+    artificialanalysis:
+    - gemini-3-5-flash
+    epoch:
+    - gemini-3.5-flash_high
+    modelsdev:
+    - google/gemini-3.5-flash
+- id: gemini-3.1-pro
+  name: Gemini 3.1 Pro
+  vendor: Google
+  aliases:
+    openrouter:
+    - google/gemini-3.1-pro-preview
+    livebench:
+    - gemini-3.1-pro-preview-high
+    artificialanalysis:
+    - gemini-3-1-pro-preview
+    epoch:
+    - gemini-3.1-pro-preview
+    modelsdev:
+    - google/gemini-3.1-pro-preview
+- id: grok-4.3
+  name: Grok 4.3
+  vendor: xAI
+  aliases:
+    openrouter:
+    - x-ai/grok-4.3
+    livebench:
+    - grok-4.3
+    artificialanalysis:
+    - grok-4-3
+    epoch:
+    - grok-4.3_high
+    modelsdev:
+    - xai/grok-4.3
+- id: deepseek-v4-pro
+  name: DeepSeek V4 Pro
+  vendor: DeepSeek
+  aliases:
+    openrouter:
+    - deepseek/deepseek-v4-pro
+    livebench:
+    - deepseek-v4-pro
+    artificialanalysis:
+    - deepseek-v4-pro
+    epoch:
+    - deepseek-v4-pro_max
+    modelsdev:
+    - deepseek/deepseek-v4-pro
+- id: deepseek-v4-flash
+  name: DeepSeek V4 Flash
+  vendor: DeepSeek
+  aliases:
+    openrouter:
+    - deepseek/deepseek-v4-flash
+    livebench:
+    - deepseek-v4-flash
+    artificialanalysis:
+    - deepseek-v4-flash
+    modelsdev:
+    - deepseek/deepseek-v4-flash
+- id: qwen3.7-max
+  name: Qwen3.7 Max
+  vendor: Alibaba
+  aliases:
+    openrouter:
+    - qwen/qwen3.7-max
+    livebench:
+    - qwen3.7-max
+    artificialanalysis:
+    - qwen3-7-max
+    epoch:
+    - qwen3.7-max
+    modelsdev:
+    - alibaba/qwen3.7-max
+- id: kimi-k2.7-code
+  name: Kimi K2.7 Code
+  vendor: Moonshot
+  aliases:
+    openrouter:
+    - moonshotai/kimi-k2.7-code
+    livebench:
+    - kimi-k2.7-code
+    artificialanalysis:
+    - kimi-k2-7-code
+    epoch:
+    - kimi-k2.7-code
+    modelsdev:
+    - moonshotai/kimi-k2.7-code
+- id: glm-5.2
+  name: GLM 5.2
+  vendor: Z.ai
+  aliases:
+    openrouter:
+    - z-ai/glm-5.2
+    livebench:
+    - glm-5.2
+    artificialanalysis:
+    - glm-5-2
+    epoch:
+    - glm-5.2_max
+    modelsdev:
+    - zhipuai/glm-5.2
+- id: minimax-m3
+  name: MiniMax M3
+  vendor: MiniMax
+  aliases:
+    openrouter:
+    - minimax/minimax-m3
+    livebench:
+    - minimax-m3
+    artificialanalysis:
+    - minimax-m3
+- id: mistral-large-2512
+  name: Mistral Large 3
+  vendor: Mistral
+  aliases:
+    openrouter:
+    - mistralai/mistral-large-2512
+    artificialanalysis:
+    - mistral-large-3
+    modelsdev:
+    - mistral/mistral-large-2512

@@ -11,6 +11,9 @@ def test_sources_yaml_valid():
         "openrouter",
         "artificialanalysis",
         "livebench",
+        "swebench",
+        "epoch",
+        "modelsdev",
     }
     for s in sources:
         assert s["url"].startswith("https://")

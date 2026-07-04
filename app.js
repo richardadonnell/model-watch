@@ -4,6 +4,9 @@ const METRIC_COLS = [
   ["artificialanalysis", "intelligence_index", "AA Intel"],
   ["artificialanalysis", "coding_index", "AA Coding"],
   ["livebench", "average", "LiveBench"],
+  ["epoch", "gpqa_diamond_pct", "GPQA-D"],
+  ["epoch", "swe_bench_verified_pct", "SWE-V"],
+  ["swebench", "resolved_pct", "SWE-bench %"],
   ["openrouter", "tokens_total", "OR usage"],
   ["artificialanalysis", "price_blended_per_1m", "$/1M blend"],
 ];

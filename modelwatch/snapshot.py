@@ -2,6 +2,9 @@ RANK_METRIC = {
     "openrouter": "tokens_total",
     "artificialanalysis": "intelligence_index",
     "livebench": "average",
+    "swebench": "resolved_pct",
+    "epoch": "gpqa_diamond_pct",
+    "modelsdev": "context_length",
 }
 
 
