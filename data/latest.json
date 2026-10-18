@@ -1,39 +1,39 @@
 {
- "generated_at": "2026-10-17T06:41:42Z",
+ "generated_at": "2026-10-18T06:41:40Z",
  "sources": {
   "openrouter": {
    "ok": true,
-   "fetched_at": "2026-10-17T06:41:42Z",
+   "fetched_at": "2026-10-18T06:41:40Z",
    "stale_since": null,
    "data_date": null
   },
   "artificialanalysis": {
    "ok": true,
-   "fetched_at": "2026-10-17T06:41:42Z",
+   "fetched_at": "2026-10-18T06:41:40Z",
    "stale_since": null,
    "data_date": null
   },
   "livebench": {
    "ok": true,
-   "fetched_at": "2026-10-17T06:41:42Z",
+   "fetched_at": "2026-10-18T06:41:40Z",
    "stale_since": null,
    "data_date": "2026-06-25"
   },
   "swebench": {
    "ok": true,
-   "fetched_at": "2026-10-17T06:41:42Z",
+   "fetched_at": "2026-10-18T06:41:40Z",
    "stale_since": null,
    "data_date": null
   },
   "epoch": {
    "ok": true,
-   "fetched_at": "2026-10-17T06:41:42Z",
+   "fetched_at": "2026-10-18T06:41:40Z",
    "stale_since": null,
    "data_date": "2026-10-15"
   },
   "modelsdev": {
    "ok": true,
-   "fetched_at": "2026-10-17T06:41:42Z",
+   "fetched_at": "2026-10-18T06:41:40Z",
    "stale_since": null,
    "data_date": null
   }
@@ -47,7 +47,7 @@
      "price_in_per_1m": 10.0,
      "price_out_per_1m": 50.0,
      "context_length": 1000000,
-     "tokens_total": 38169008564
+     "tokens_total": 37863184064
     },
     "artificialanalysis": {
      "intelligence_index": 49.6,
@@ -80,7 +80,7 @@
      "price_in_per_1m": 5.0,
      "price_out_per_1m": 25.0,
      "context_length": 1000000,
-     "tokens_total": 202435905873
+     "tokens_total": 206536069265
     },
     "artificialanalysis": {
      "intelligence_index": 41.8,
@@ -113,7 +113,7 @@
      "price_in_per_1m": 2.0,
      "price_out_per_1m": 10.0,
      "context_length": 1000000,
-     "tokens_total": 642495636408
+     "tokens_total": 627120189715
     },
     "artificialanalysis": {
      "intelligence_index": 34.4,
@@ -142,7 +142,7 @@
      "price_in_per_1m": 1.0,
      "price_out_per_1m": 5.0,
      "context_length": 200000,
-     "tokens_total": 168745042652
+     "tokens_total": 164633211048
     },
     "artificialanalysis": {
      "intelligence_index": 15.4,
@@ -172,7 +172,7 @@
      "price_in_per_1m": 5.0,
      "price_out_per_1m": 30.0,
      "context_length": 1050000,
-     "tokens_total": 45172901621
+     "tokens_total": 47867370071
     },
     "artificialanalysis": {
      "intelligence_index": 38.4,
@@ -206,7 +206,7 @@
      "price_in_per_1m": 2.5,
      "price_out_per_1m": 15.0,
      "context_length": 1050000,
-     "tokens_total": 328931621523
+     "tokens_total": 325075800977
     },
     "artificialanalysis": {
      "intelligence_index": 39,
@@ -239,7 +239,7 @@
      "price_in_per_1m": 1.75,
      "price_out_per_1m": 14.0,
      "context_length": 400000,
-     "tokens_total": 33384657580
+     "tokens_total": 32694776647
     },
     "artificialanalysis": {
      "intelligence_index": 32.5,
@@ -247,8 +247,8 @@
      "price_in_per_1m": 1.75,
      "price_out_per_1m": 14,
      "price_blended_per_1m": 4.813,
-     "tokens_per_second": 103.66,
-     "ttft_seconds": 56.39
+     "tokens_per_second": 107.789,
+     "ttft_seconds": 44.852
     },
     "epoch": {
      "swe_bench_verified_pct": 74.8
@@ -268,7 +268,7 @@
      "price_in_per_1m": 1.5,
      "price_out_per_1m": 9.0,
      "context_length": 1048576,
-     "tokens_total": 321456297704
+     "tokens_total": 320330998100
     },
     "artificialanalysis": {
      "intelligence_index": 32.6,
@@ -302,7 +302,7 @@
      "price_in_per_1m": 2.0,
      "price_out_per_1m": 12.0,
      "context_length": 1048576,
-     "tokens_total": 174756804322
+     "tokens_total": 170170964559
     },
     "artificialanalysis": {
      "intelligence_index": 29.7,
@@ -310,8 +310,8 @@
      "price_in_per_1m": 2,
      "price_out_per_1m": 12,
      "price_blended_per_1m": 4.5,
-     "tokens_per_second": 139.804,
-     "ttft_seconds": 19.146
+     "tokens_per_second": 135.781,
+     "ttft_seconds": 18.609
     },
     "livebench": {
      "average": 78.15
@@ -335,7 +335,7 @@
      "price_in_per_1m": 1.25,
      "price_out_per_1m": 2.5,
      "context_length": 1000000,
-     "tokens_total": 36030590077
+     "tokens_total": 36907502724
     },
     "artificialanalysis": {
      "intelligence_index": 24.9,
@@ -368,7 +368,7 @@
      "price_in_per_1m": 0.2088,
      "price_out_per_1m": 0.4176,
      "context_length": 1048576,
-     "tokens_total": 1709028576291
+     "tokens_total": 1641742872494
     },
     "artificialanalysis": {
      "intelligence_index": 36,
@@ -376,8 +376,8 @@
      "price_in_per_1m": 1.32,
      "price_out_per_1m": 3.96,
      "price_blended_per_1m": 1.98,
-     "tokens_per_second": 91.971,
-     "ttft_seconds": 1.138
+     "tokens_per_second": 92.27,
+     "ttft_seconds": 1.04
     },
     "livebench": {
      "average": 72.55
@@ -402,14 +402,14 @@
      "price_in_per_1m": 0.091,
      "price_out_per_1m": 0.182,
      "context_length": 1048576,
-     "tokens_total": 7861483692675
+     "tokens_total": 7880154324106
     },
     "artificialanalysis": {
      "intelligence_index": 34.3,
      "coding_index": 69.1,
-     "price_in_per_1m": 0.44,
-     "price_out_per_1m": 1.32,
-     "price_blended_per_1m": 0.66,
+     "price_in_per_1m": 0.14,
+     "price_out_per_1m": 0.28,
+     "price_blended_per_1m": 0.175,
      "tokens_per_second": 0,
      "ttft_seconds": 0
     },
@@ -431,7 +431,7 @@
      "price_in_per_1m": 1.475,
      "price_out_per_1m": 4.425,
      "context_length": 1000000,
-     "tokens_total": 9775524600
+     "tokens_total": 9136310617
     },
     "artificialanalysis": {
      "intelligence_index": 29.5,
@@ -465,7 +465,7 @@
      "price_in_per_1m": 0.6712,
      "price_out_per_1m": 3.35,
      "context_length": 262144,
-     "tokens_total": 63643215829
+     "tokens_total": 60550841173
     },
     "artificialanalysis": {
      "intelligence_index": 25.8,
@@ -473,8 +473,8 @@
      "price_in_per_1m": 0.95,
      "price_out_per_1m": 4,
      "price_blended_per_1m": 1.712,
-     "tokens_per_second": 51.743,
-     "ttft_seconds": 1.19
+     "tokens_per_second": 51.795,
+     "ttft_seconds": 1.118
     },
     "livebench": {
      "average": 68.76
@@ -498,7 +498,7 @@
      "price_in_per_1m": 0.62,
      "price_out_per_1m": 2.42,
      "context_length": 1048576,
-     "tokens_total": 1043850376846
+     "tokens_total": 1036102143548
     },
     "artificialanalysis": {
      "intelligence_index": 33.7,
@@ -532,7 +532,7 @@
      "price_in_per_1m": 0.3,
      "price_out_per_1m": 1.2,
      "context_length": 1048576,
-     "tokens_total": 1389620103290
+     "tokens_total": 1389740590806
     },
     "artificialanalysis": {
      "intelligence_index": 29.2,
@@ -540,8 +540,8 @@
      "price_in_per_1m": 0.3,
      "price_out_per_1m": 1.2,
      "price_blended_per_1m": 0.525,
-     "tokens_per_second": 115.233,
-     "ttft_seconds": 0.931
+     "tokens_per_second": 109.984,
+     "ttft_seconds": 0.923
     },
     "livebench": {
      "average": 67.53
@@ -560,7 +560,7 @@
      "price_in_per_1m": 0.5,
      "price_out_per_1m": 1.5,
      "context_length": 262144,
-     "tokens_total": 993173500
+     "tokens_total": 994324833
     },
     "artificialanalysis": {
      "intelligence_index": 9.3,
@@ -669,40 +669,5 @@
    "claude-haiku-4.5"
   ]
  },
- "changes": [
-  {
-   "type": "price_change",
-   "model": "deepseek-v4-pro",
-   "from": 1.9105,
-   "to": 0.4176
-  },
-  {
-   "type": "rank_change",
-   "source": "openrouter",
-   "model": "gpt-5.4",
-   "from": 7,
-   "to": 6
-  },
-  {
-   "type": "rank_change",
-   "source": "openrouter",
-   "model": "gemini-3.5-flash",
-   "from": 6,
-   "to": 7
-  },
-  {
-   "type": "rank_change",
-   "source": "openrouter",
-   "model": "gemini-3.1-pro",
-   "from": 10,
-   "to": 9
-  },
-  {
-   "type": "rank_change",
-   "source": "openrouter",
-   "model": "claude-haiku-4.5",
-   "from": 9,
-   "to": 10
-  }
- ]
+ "changes": []
 }
