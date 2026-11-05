@@ -1,39 +1,39 @@
 {
- "generated_at": "2026-11-04T06:31:39Z",
+ "generated_at": "2026-11-05T06:31:32Z",
  "sources": {
   "openrouter": {
    "ok": true,
-   "fetched_at": "2026-11-04T06:31:39Z",
+   "fetched_at": "2026-11-05T06:31:32Z",
    "stale_since": null,
    "data_date": null
   },
   "artificialanalysis": {
-   "ok": true,
+   "ok": false,
    "fetched_at": "2026-11-04T06:31:39Z",
-   "stale_since": null,
+   "stale_since": "2026-11-04T06:31:39Z",
    "data_date": null
   },
   "livebench": {
    "ok": true,
-   "fetched_at": "2026-11-04T06:31:39Z",
+   "fetched_at": "2026-11-05T06:31:32Z",
    "stale_since": null,
    "data_date": "2026-06-25"
   },
   "swebench": {
    "ok": true,
-   "fetched_at": "2026-11-04T06:31:39Z",
+   "fetched_at": "2026-11-05T06:31:32Z",
    "stale_since": null,
    "data_date": null
   },
   "epoch": {
    "ok": true,
-   "fetched_at": "2026-11-04T06:31:39Z",
+   "fetched_at": "2026-11-05T06:31:32Z",
    "stale_since": null,
-   "data_date": "2026-11-02"
+   "data_date": "2026-11-03"
   },
   "modelsdev": {
    "ok": true,
-   "fetched_at": "2026-11-04T06:31:39Z",
+   "fetched_at": "2026-11-05T06:31:32Z",
    "stale_since": null,
    "data_date": null
   }
@@ -47,7 +47,7 @@
      "price_in_per_1m": 10.0,
      "price_out_per_1m": 50.0,
      "context_length": 1000000,
-     "tokens_total": 40626591633
+     "tokens_total": 38082352004
     },
     "artificialanalysis": {
      "intelligence_index": null,
@@ -80,7 +80,7 @@
      "price_in_per_1m": 5.0,
      "price_out_per_1m": 25.0,
      "context_length": 1000000,
-     "tokens_total": 186204721993
+     "tokens_total": 203823173092
     },
     "artificialanalysis": {
      "intelligence_index": null,
@@ -113,7 +113,7 @@
      "price_in_per_1m": 2.0,
      "price_out_per_1m": 10.0,
      "context_length": 1000000,
-     "tokens_total": 521650308200
+     "tokens_total": 518055715799
     },
     "artificialanalysis": {
      "intelligence_index": null,
@@ -142,7 +142,7 @@
      "price_in_per_1m": 1.0,
      "price_out_per_1m": 5.0,
      "context_length": 200000,
-     "tokens_total": 127080730422
+     "tokens_total": 127893383516
     },
     "artificialanalysis": {
      "intelligence_index": null,
@@ -172,7 +172,7 @@
      "price_in_per_1m": 5.0,
      "price_out_per_1m": 30.0,
      "context_length": 1050000,
-     "tokens_total": 32601893433
+     "tokens_total": 32528360700
     },
     "artificialanalysis": {
      "intelligence_index": null,
@@ -206,7 +206,7 @@
      "price_in_per_1m": 2.5,
      "price_out_per_1m": 15.0,
      "context_length": 1050000,
-     "tokens_total": 234426624706
+     "tokens_total": 226446458474
     },
     "artificialanalysis": {
      "intelligence_index": null,
@@ -239,7 +239,7 @@
      "price_in_per_1m": 1.75,
      "price_out_per_1m": 14.0,
      "context_length": 400000,
-     "tokens_total": 20351353751
+     "tokens_total": 17293993669
     },
     "artificialanalysis": {
      "intelligence_index": null,
@@ -268,7 +268,7 @@
      "price_in_per_1m": 1.5,
      "price_out_per_1m": 9.0,
      "context_length": 1048576,
-     "tokens_total": 293657645547
+     "tokens_total": 303397792711
     },
     "artificialanalysis": {
      "intelligence_index": null,
@@ -302,7 +302,7 @@
      "price_in_per_1m": 2.0,
      "price_out_per_1m": 12.0,
      "context_length": 1048576,
-     "tokens_total": 92475164295
+     "tokens_total": 91383148490
     },
     "artificialanalysis": {
      "intelligence_index": null,
@@ -335,7 +335,7 @@
      "price_in_per_1m": 1.25,
      "price_out_per_1m": 2.5,
      "context_length": 1000000,
-     "tokens_total": 41560190355
+     "tokens_total": 42731633599
     },
     "artificialanalysis": {
      "intelligence_index": null,
@@ -368,7 +368,7 @@
      "price_in_per_1m": 1.6,
      "price_out_per_1m": 3.2,
      "context_length": 1048576,
-     "tokens_total": 1349647696765
+     "tokens_total": 1314664308354
     },
     "artificialanalysis": {
      "intelligence_index": 23.1,
@@ -402,7 +402,7 @@
      "price_in_per_1m": 0.091,
      "price_out_per_1m": 0.182,
      "context_length": 1048576,
-     "tokens_total": 6385026728346
+     "tokens_total": 6242058025253
     },
     "artificialanalysis": {
      "intelligence_index": null,
@@ -431,7 +431,7 @@
      "price_in_per_1m": 1.475,
      "price_out_per_1m": 4.425,
      "context_length": 1000000,
-     "tokens_total": 9029646709
+     "tokens_total": 9001539878
     },
     "artificialanalysis": {
      "intelligence_index": null,
@@ -465,7 +465,7 @@
      "price_in_per_1m": 0.6,
      "price_out_per_1m": 3.5,
      "context_length": 262144,
-     "tokens_total": 43312058557
+     "tokens_total": 42085807721
     },
     "artificialanalysis": {
      "intelligence_index": null,
@@ -498,7 +498,7 @@
      "price_in_per_1m": 0.006,
      "price_out_per_1m": 6.8,
      "context_length": 1048576,
-     "tokens_total": 921447814207
+     "tokens_total": 903284366304
     },
     "artificialanalysis": {
      "intelligence_index": null,
@@ -532,7 +532,7 @@
      "price_in_per_1m": 0.3,
      "price_out_per_1m": 1.2,
      "context_length": 1048576,
-     "tokens_total": 523278300397
+     "tokens_total": 565599241314
     },
     "artificialanalysis": {
      "intelligence_index": 18.9,
@@ -560,7 +560,7 @@
      "price_in_per_1m": 0.5,
      "price_out_per_1m": 1.5,
      "context_length": 262144,
-     "tokens_total": 1127892770
+     "tokens_total": 1219124698
     },
     "artificialanalysis": {
      "intelligence_index": null,
@@ -591,8 +591,8 @@
    "claude-opus-4.8",
    "claude-haiku-4.5",
    "gemini-3.1-pro",
-   "kimi-k2.7-code",
    "grok-4.3",
+   "kimi-k2.7-code",
    "claude-fable-5",
    "gpt-5.5",
    "gpt-5.3-codex",
@@ -658,30 +658,20 @@
   {
    "type": "rank_change",
    "source": "openrouter",
-   "model": "minimax-m3",
-   "from": 5,
-   "to": 4
-  },
-  {
-   "type": "rank_change",
-   "source": "openrouter",
-   "model": "claude-sonnet-5",
-   "from": 4,
-   "to": 5
-  },
-  {
-   "type": "rank_change",
-   "source": "openrouter",
    "model": "grok-4.3",
-   "from": 13,
+   "from": 12,
+   "to": 11
+  },
+  {
+   "type": "rank_change",
+   "source": "openrouter",
+   "model": "kimi-k2.7-code",
+   "from": 11,
    "to": 12
   },
   {
-   "type": "rank_change",
-   "source": "openrouter",
-   "model": "claude-fable-5",
-   "from": 12,
-   "to": 13
+   "type": "source_stale",
+   "source": "artificialanalysis"
   }
  ]
 }
