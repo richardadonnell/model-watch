@@ -78,24 +78,27 @@ def test_openrouter_parse_handles_null_token_counts():
 
 
 AA = {
-    "status": 200,
+    "tier": "free",
+    "intelligence_index_version": "5.0",
+    "pagination": {"page": 1, "page_size": 200, "total_pages": 1, "has_more": False},
     "data": [
         {
             "id": "uuid-1",
             "name": "Claude Sonnet 5",
             "slug": "claude-sonnet-5",
-            "model_creator": {"name": "Anthropic"},
+            "model_creator": {"id": "uuid-c", "name": "Anthropic"},
             "evaluations": {
                 "artificial_analysis_intelligence_index": 70.1,
-                "artificial_analysis_coding_index": 65.2,
+                "artificial_analysis_coding_index": None,
             },
             "pricing": {
                 "price_1m_input_tokens": 2.0,
                 "price_1m_output_tokens": 10.0,
-                "price_1m_blended_3_to_1": 4.0,
             },
-            "median_output_tokens_per_second": 80.5,
-            "median_time_to_first_token_seconds": 0.6,
+            "performance": {
+                "median_output_tokens_per_second": 80.5,
+                "median_time_to_first_token_seconds": 0.6,
+            },
         }
     ],
 }
@@ -106,9 +109,59 @@ def test_aa_parse():
     m = rows[0]["metrics"]
     assert rows[0]["raw_name"] == "claude-sonnet-5"
     assert m["intelligence_index"] == 70.1
-    assert m["coding_index"] == 65.2
+    assert m["coding_index"] is None  # AA no longer publishes a Coding Index
+    assert m["price_in_per_1m"] == 2.0
+    assert m["price_out_per_1m"] == 10.0
+    # Free shape has no blended price: derived as (3*in + out) / 4.
     assert m["price_blended_per_1m"] == 4.0
     assert m["tokens_per_second"] == 80.5
+    assert m["ttft_seconds"] == 0.6
+
+
+def test_aa_parse_prefers_pro_blended_price():
+    payload = {"data": [dict(AA["data"][0])]}
+    payload["data"][0]["pricing"] = {
+        "price_1m_input_tokens": 2.0,
+        "price_1m_output_tokens": 10.0,
+        "price_1m_blended_3_to_1": 4.25,
+    }
+    m = artificialanalysis.parse(payload)[0]["metrics"]
+    assert m["price_blended_per_1m"] == 4.25
+
+
+def test_aa_parse_missing_prices_gives_null_blend():
+    payload = {"data": [dict(AA["data"][0])]}
+    payload["data"][0]["pricing"] = {"price_1m_input_tokens": 2.0}
+    assert artificialanalysis.parse(payload)[0]["metrics"]["price_blended_per_1m"] is None
+
+
+def test_aa_fetch_follows_pagination(monkeypatch):
+    pages = {
+        1: {"pagination": {"page": 1, "has_more": True}, "data": AA["data"]},
+        2: {"pagination": {"page": 2, "has_more": False}, "data": AA["data"]},
+    }
+    calls = []
+
+    class Resp:
+        def __init__(self, body):
+            self.body = body
+
+        def raise_for_status(self):
+            pass
+
+        def json(self):
+            return self.body
+
+    def fake_get(url, headers, params, timeout):
+        calls.append((url, headers["x-api-key"], params["page"]))
+        return Resp(pages[params["page"]])
+
+    monkeypatch.setenv("ARTIFICIALANALYSIS_API_KEY", "test-key")
+    monkeypatch.setattr(artificialanalysis.requests, "get", fake_get)
+    out = artificialanalysis.fetch()
+    assert [c[2] for c in calls] == [1, 2]
+    assert all(c[0].endswith("/api/v2/language/models/free") for c in calls)
+    assert len(out["entries"]) == 2
 
 
 from modelwatch.fetchers import livebench
