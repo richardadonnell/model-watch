@@ -1,39 +1,39 @@
 {
- "generated_at": "2026-11-05T06:31:32Z",
+ "generated_at": "2026-11-05T15:48:17Z",
  "sources": {
   "openrouter": {
    "ok": true,
-   "fetched_at": "2026-11-05T06:31:32Z",
+   "fetched_at": "2026-11-05T15:48:17Z",
    "stale_since": null,
    "data_date": null
   },
   "artificialanalysis": {
-   "ok": false,
-   "fetched_at": "2026-11-04T06:31:39Z",
-   "stale_since": "2026-11-04T06:31:39Z",
+   "ok": true,
+   "fetched_at": "2026-11-05T15:48:17Z",
+   "stale_since": null,
    "data_date": null
   },
   "livebench": {
    "ok": true,
-   "fetched_at": "2026-11-05T06:31:32Z",
+   "fetched_at": "2026-11-05T15:48:17Z",
    "stale_since": null,
    "data_date": "2026-06-25"
   },
   "swebench": {
    "ok": true,
-   "fetched_at": "2026-11-05T06:31:32Z",
+   "fetched_at": "2026-11-05T15:48:17Z",
    "stale_since": null,
    "data_date": null
   },
   "epoch": {
    "ok": true,
-   "fetched_at": "2026-11-05T06:31:32Z",
+   "fetched_at": "2026-11-05T15:48:17Z",
    "stale_since": null,
    "data_date": "2026-11-03"
   },
   "modelsdev": {
    "ok": true,
-   "fetched_at": "2026-11-05T06:31:32Z",
+   "fetched_at": "2026-11-05T15:48:17Z",
    "stale_since": null,
    "data_date": null
   }
@@ -54,9 +54,9 @@
      "coding_index": null,
      "price_in_per_1m": 10,
      "price_out_per_1m": 50,
-     "price_blended_per_1m": 20,
-     "tokens_per_second": 0,
-     "ttft_seconds": 0
+     "price_blended_per_1m": 20.0,
+     "tokens_per_second": 63.16,
+     "ttft_seconds": 95.26
     },
     "livebench": {
      "average": 80.13
@@ -87,9 +87,9 @@
      "coding_index": null,
      "price_in_per_1m": 5,
      "price_out_per_1m": 25,
-     "price_blended_per_1m": 10,
-     "tokens_per_second": 0,
-     "ttft_seconds": 0
+     "price_blended_per_1m": 10.0,
+     "tokens_per_second": 56.66,
+     "ttft_seconds": 46.65
     },
     "livebench": {
      "average": 79.81
@@ -120,9 +120,9 @@
      "coding_index": null,
      "price_in_per_1m": 2,
      "price_out_per_1m": 10,
-     "price_blended_per_1m": 4,
-     "tokens_per_second": 0,
-     "ttft_seconds": 0
+     "price_blended_per_1m": 4.0,
+     "tokens_per_second": 63.56,
+     "ttft_seconds": 41.82
     },
     "livebench": {
      "average": 75.51
@@ -149,9 +149,9 @@
      "coding_index": null,
      "price_in_per_1m": 1,
      "price_out_per_1m": 5,
-     "price_blended_per_1m": 2,
-     "tokens_per_second": 0,
-     "ttft_seconds": 0
+     "price_blended_per_1m": 2.0,
+     "tokens_per_second": 82.98,
+     "ttft_seconds": 0.55
     },
     "epoch": {
      "otis_mock_aime_pct": 35.8,
@@ -180,8 +180,8 @@
      "price_in_per_1m": 5,
      "price_out_per_1m": 30,
      "price_blended_per_1m": 11.25,
-     "tokens_per_second": 0,
-     "ttft_seconds": 0
+     "tokens_per_second": 72.7,
+     "ttft_seconds": 54.4
     },
     "livebench": {
      "average": 80.53
@@ -214,8 +214,8 @@
      "price_in_per_1m": 2.5,
      "price_out_per_1m": 15,
      "price_blended_per_1m": 5.625,
-     "tokens_per_second": 0,
-     "ttft_seconds": 0
+     "tokens_per_second": 80.97,
+     "ttft_seconds": 211.68
     },
     "livebench": {
      "average": 78.8
@@ -246,9 +246,9 @@
      "coding_index": null,
      "price_in_per_1m": 1.75,
      "price_out_per_1m": 14,
-     "price_blended_per_1m": 4.813,
-     "tokens_per_second": 82.742,
-     "ttft_seconds": 36.206
+     "price_blended_per_1m": 4.8125,
+     "tokens_per_second": 80.18,
+     "ttft_seconds": 84.01
     },
     "epoch": {
      "swe_bench_verified_pct": 74.8
@@ -276,8 +276,8 @@
      "price_in_per_1m": 1.5,
      "price_out_per_1m": 9,
      "price_blended_per_1m": 3.375,
-     "tokens_per_second": 0,
-     "ttft_seconds": 0
+     "tokens_per_second": 170.43,
+     "ttft_seconds": 13.98
     },
     "livebench": {
      "average": 75.44
@@ -310,8 +310,8 @@
      "price_in_per_1m": 2,
      "price_out_per_1m": 12,
      "price_blended_per_1m": 4.5,
-     "tokens_per_second": 127.578,
-     "ttft_seconds": 15.556
+     "tokens_per_second": 124.72,
+     "ttft_seconds": 23.66
     },
     "livebench": {
      "average": 78.15
@@ -342,9 +342,9 @@
      "coding_index": null,
      "price_in_per_1m": 1.25,
      "price_out_per_1m": 2.5,
-     "price_blended_per_1m": 1.563,
-     "tokens_per_second": 0,
-     "ttft_seconds": 0
+     "price_blended_per_1m": 1.5625,
+     "tokens_per_second": 80.77,
+     "ttft_seconds": 27.31
     },
     "livebench": {
      "average": 63.27
@@ -376,8 +376,8 @@
      "price_in_per_1m": 1.32,
      "price_out_per_1m": 3.96,
      "price_blended_per_1m": 1.98,
-     "tokens_per_second": 75.507,
-     "ttft_seconds": 1.068
+     "tokens_per_second": 69.15,
+     "ttft_seconds": 1.62
     },
     "livebench": {
      "average": 72.55
@@ -410,8 +410,8 @@
      "price_in_per_1m": 0.14,
      "price_out_per_1m": 0.28,
      "price_blended_per_1m": 0.175,
-     "tokens_per_second": 0,
-     "ttft_seconds": 0
+     "tokens_per_second": 126.22,
+     "ttft_seconds": 1.54
     },
     "livebench": {
      "average": 66.05
@@ -439,8 +439,8 @@
      "price_in_per_1m": 2.5,
      "price_out_per_1m": 7.5,
      "price_blended_per_1m": 3.75,
-     "tokens_per_second": 0,
-     "ttft_seconds": 0
+     "tokens_per_second": 198.53,
+     "ttft_seconds": 2.19
     },
     "livebench": {
      "average": 74.1
@@ -472,9 +472,9 @@
      "coding_index": null,
      "price_in_per_1m": 0.95,
      "price_out_per_1m": 4,
-     "price_blended_per_1m": 1.712,
-     "tokens_per_second": 44.263,
-     "ttft_seconds": 1.099
+     "price_blended_per_1m": 1.7125,
+     "tokens_per_second": 43.93,
+     "ttft_seconds": 2.75
     },
     "livebench": {
      "average": 68.76
@@ -506,8 +506,8 @@
      "price_in_per_1m": 1.4,
      "price_out_per_1m": 4.4,
      "price_blended_per_1m": 2.15,
-     "tokens_per_second": 0,
-     "ttft_seconds": 0
+     "tokens_per_second": 80.2,
+     "ttft_seconds": 1.64
     },
     "livebench": {
      "average": 73.38
@@ -540,8 +540,8 @@
      "price_in_per_1m": 0.3,
      "price_out_per_1m": 1.2,
      "price_blended_per_1m": 0.525,
-     "tokens_per_second": 105.864,
-     "ttft_seconds": 0.724
+     "tokens_per_second": 106.4,
+     "ttft_seconds": 0.81
     },
     "livebench": {
      "average": 67.53
@@ -568,8 +568,8 @@
      "price_in_per_1m": 0.5,
      "price_out_per_1m": 1.5,
      "price_blended_per_1m": 0.75,
-     "tokens_per_second": 0,
-     "ttft_seconds": 0
+     "tokens_per_second": 89.49,
+     "ttft_seconds": 1.08
     },
     "modelsdev": {
      "price_in_per_1m": 0.5,
@@ -654,24 +654,5 @@
    "claude-haiku-4.5"
   ]
  },
- "changes": [
-  {
-   "type": "rank_change",
-   "source": "openrouter",
-   "model": "grok-4.3",
-   "from": 12,
-   "to": 11
-  },
-  {
-   "type": "rank_change",
-   "source": "openrouter",
-   "model": "kimi-k2.7-code",
-   "from": 11,
-   "to": 12
-  },
-  {
-   "type": "source_stale",
-   "source": "artificialanalysis"
-  }
- ]
+ "changes": []
 }
